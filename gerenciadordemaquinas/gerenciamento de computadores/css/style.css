@@ -1,0 +1,230 @@
+*{
+    scrollbar-width: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9bd;
+    display: block;
+    
+}
+
+header {
+    background-color: #0271e7e5;
+    color: rgb(0, 0, 0);
+    padding: 2rem;
+    text-align: center;
+    range: 0 0 0 0;
+}
+
+main {
+    padding: 1rem;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: anchor-center;
+    grid-template-columns: 2fr 2fr;
+    gap: 2.20rem;
+    margin-bottom: 2rem;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: center
+}
+
+form label {
+    grid-column: span 1;
+    margin-bottom: 0.5rem;
+}
+
+form input {
+    border-radius: 9px;
+    border: 2px solid #000000;
+    grid-column: span 1;
+    padding: 10px 10px;
+    width: 17%;
+    font-size: 1rem;
+}
+
+form select {
+    border-radius: 9px;
+    border: 2px solid #000000;
+    grid-column: span 2;
+    width: 16%;
+    padding: 10px 10px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 9px;
+    margin-top: 1rem;
+    grid-column: span 2;
+    width: 30%;
+}
+form button:hover {
+    background-color: #238eff;
+    color: rgb(255, 255, 255);
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+table th,
+table td {
+    border: 1px solid #ddddddb2;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+table th {
+    background-color: #0271e7e5;
+    color: white;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button.edit {
+    background-color: #ffc107;
+    border: none;
+    color: white;
+}
+
+button.delete {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+}
+
+div .pesquisa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+button.botao {
+    background-color: #007bff;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 9px;
+    font-size: 1rem;
+    width: 9%;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+button.botao:hover {
+    background-color: #238eff;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 9px;
+    font-size: 1rem;
+    width: 9%;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+input#pesquisa {
+    border-radius: 9px;
+    border: 1px solid #000000;
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 20%;
+}
+
+select#vinidobubumguloso {
+    border-radius: 9px;
+    border: 1px solid #000000;
+    grid-column: span 2;
+    width: 10%;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+select#edbrock {
+    border-radius: 9px;
+    border: 1px solid #000000;
+    grid-column: span 2;
+    width: 10%;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+
+button.botaodlt{
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 6px 6px;
+    font-size: 1rem;
+    border-radius: 9px;
+    margin-top: 1rem;
+    grid-column: span 2;
+    width: 6%;
+    margin-left: 31%
+}
+button.botaodlt:hover{
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 6px 6px;
+    font-size: 1rem;
+    border-radius: 9px;
+    margin-top: 1rem;
+    grid-column: span 2;
+    width: 6%;
+}
+
+
+button.botaoedit{
+    background-color: #72fc32;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 6px 6px;
+    font-size: 1rem;
+    border-radius: 9px;
+    margin-top: 1rem;
+    grid-column: span 2;
+    width: 6%;
+    
+}
+button.botaoedit:hover{
+    background-color: #00ff15;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 6px 6px;
+    font-size: 1rem;
+    border-radius: 9px;
+    margin-top: 1rem;
+    grid-column: span 2;
+    width: 6%;
+}
+
+
+tr.selected {
+    background-color: #e6f2ff;
+}
+
+
+
