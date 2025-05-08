@@ -1,0 +1,15 @@
+CREATE DATABASE gerenciamento CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE gerenciamento;
+CREATE TABLE computadores (
+    id INT PRIMARY KEY,
+    status VARCHAR(20),
+    model VARCHAR(100),
+    entryDate DATE,
+    Resp VARCHAR(100),
+    Setor VARCHAR(100),
+    pronto VARCHAR(20),
+    exitDate DATE,
+    saidamt VARCHAR(50),
+    Patrimonio INT,
+    obs TEXT
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
