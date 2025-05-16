@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const id = computers[index].id;
 
         if (confirm('Tem certeza que deseja excluir este computador?')) {
-            fetch(`http://127.0.0.1/testelogin/api.php?id=${id}`, {
+            fetch(`http://127.0.0.1/testelogin/php/api.php?id=${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
