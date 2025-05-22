@@ -1,0 +1,280 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.settings-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.settings-header {
+    background-color: #4285f4;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.settings-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.settings-content {
+    padding: 20px;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+label {
+    cursor: default;
+    padding: 10px 0px 0 0;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    border: 3px solid #eee;
+}
+
+.profile-info h2 {
+    margin: 0 0 5px 0;
+}
+
+.profile-info p {
+    margin: 0;
+    color: #666;
+}
+
+.settings-section {
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.settings-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #4285f4;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-right: 40px;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 90%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.btn {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #3367d6;
+}
+
+
+#Poder {
+    width: 94%;
+    font-weight: 500;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+    padding-right: 35px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+#Poder:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+
+label[for="Poder"] {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+}
+
+
+
+
+.btn-secondary {
+    background-color: #f1f1f1;
+    color: #333;
+    margin-right: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #e1e1e1;
+}
+
+.btn-danger {
+    background-color: #ea4335;
+}
+
+.btn-danger:hover {
+    background-color: #d33426;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9bd;
+    display: block;
+    
+}
+
+header {
+    background-color: #0271e7e5;
+    color: white;
+    padding: 1px 1px;
+    text-align: center;
+}
+header img{
+    margin-right: 1rem;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: -5px;
+    margin-left: 1rem;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 50px;
+    width: 50px; 
+}
+
+header img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+/* ...perfil menu(sim mandei o chat deixa mais bonito porque tava foda)...*/
+.menu-perfil {
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: none;
+    right: 10px;
+    top: 60px;
+    min-width: 180px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(2, 113, 231, 0.15), 0 1.5px 6px rgba(0,0,0,0.08);
+    z-index: 100;
+    overflow: hidden;
+    padding: 0;
+    animation: fadeInMenu 0.3s;
+}
+
+p{
+    margin: 0;
+    padding: 10px 20px;
+    background: #0271e7e5;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+} 
+
+@keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(-10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.menu-perfil::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 24px;
+    border-width: 0 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    filter: drop-shadow(0 -2px 2px rgba(2,113,231,0.08));
+}
+
+.menu-perfil ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-perfil li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.menu-perfil li:last-child {
+    border-bottom: none;
+}
+
+.menu-perfil a {
+    display: block;
+    padding: 14px 22px;
+    text-decoration: none;
+    color: #0271e7;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.menu-perfil a:hover {
+    background: #f4f8ff;
+    color: #005bb5;
+}
