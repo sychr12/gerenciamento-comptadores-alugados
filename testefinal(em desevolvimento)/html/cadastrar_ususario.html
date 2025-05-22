@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Novo Usuário</title>
+    <link rel="stylesheet" href="/testefinal/css/registro.css">
+    <link rel="icon" href="/testefinal/img/chart_16270065 (1).png" type="image/x-icon">
+    <link rel="shortcut icon" href="/testefinal/img/chart_16270065 (1).png" type="image/x-icon">
+</head>
+
+<header>
+    <!-------------------------------------------perfil----------------------------------------------------------->
+    <div class="foto-perfil" onclick="toggleMenu()">
+
+        <img src="/testefinal/img/chart_16270065 (1).png" alt="Foto de perfil">
+        <div id="menu-perfil" class="menu-perfil">
+
+            <ul>
+                <li><a href="/testefinal/html/cadastrar_ususario.html">Registrar um novo Usuario</a></li>
+                <li><a href="/testefinal/html/index.html">Painel</a></li>
+                <li><a href="/testefinal/html/configuração.html">Configurações</a></li>
+                <li><a href="/testefinal/html/index.html">Sair</a></li>
+            </ul>
+        </div>
+    </div>
+    <h1>teste</h1>
+</header>
+<!---------------------------------Tem que colocar isso tudo no banco-------------------------------------------------->
+
+<body>
+    <h2>Cadastrar Novo Usuário</h2>
+    <form id="formCadastroUsuario">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="status">Cargo:</label>
+        <select id="status" name="status" required>
+            <option value="Estagiario">Estagiario</option>
+            <option value="Supervisor">Supervisor</option>
+            <option value="Codernador">Codernador</option>
+        </select>
+
+        <label for="email">Categoria:</label>
+        <input type="Categoria" id="Categoria" name="Categoria" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+
+
+
+        <button type="submit">Cadastrar</button>
+    </form>
+    <script src="/testefinal/js/cadastrar_usuario.js"></script>
+    <script src="/testefinal/js/perfil_menu.js"></script>
+</body>
+
+</html>
