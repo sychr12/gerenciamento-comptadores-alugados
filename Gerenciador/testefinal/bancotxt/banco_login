@@ -1,0 +1,15 @@
+-- Crie o banco de dados
+CREATE DATABASE testelogin;
+
+-- Use o banco de dados
+USE testelogin;
+
+-- Crie a tabela de usuários 
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+-- Exemplo de inserção de usuário (senha: 1234)
+INSERT INTO usuarios (usuario, senha) VALUES ('admin', ('1234'));
