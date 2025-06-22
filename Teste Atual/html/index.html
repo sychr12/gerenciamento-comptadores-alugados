@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/pagina_central.css">
+    <link rel="stylesheet" href="estilo.css?v=1.1">
+    <link rel="icon" href="/img/chart_16270065 (1).png" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/chart_16270065 (1).png" type="image/x-icon">
+    <title>Gerenciamento de Computadores</title>
+</head>
+
+<body>
+    <header>
+        <!-------------------------------------------perfil----------------------------------------------------------->
+        <div class="foto-perfil" onclick="toggleMenu()">
+
+            <img src="/img/chart_16270065 (1).png" alt="Foto de perfil">
+            <div id="menu-perfil" class="menu-perfil">
+
+                <ul>
+                    <li><a href="/html/login.html">Login</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <h1>Lista de Computadores</h1>
+        </main>
+    </header>
+    
+    <table id="computerTable">
+
+        <!-- ----------------------------------Barra de Pesquisa---------------------------------------- -->
+        <div class="pesquisa">
+            <label for="pesquisa">Pesquisar:</label>
+            <input type="search" id="pesquisa" placeholder="Pesquisar...">
+
+            <label for="vinidobubumguloso"></label>
+            <select id="vinidobubumguloso" name="vinidobubumguloso">
+                <option value="">Selecione</option>
+                <option value="Positivo">Positivo</option>
+                <option value="Compaq">Compaq</option>
+            </select>
+
+            <select id="edbrock" name="edbrock">
+                <option value="Selecione">Selecione</option>
+                <option value="Defeito">Defeito</option>
+                <option value="Upgrade">Upgrade</option>
+                <option value="Troca">Troca</option>
+            </select>
+
+
+
+        </div>
+
+
+        <!-- ----------------------------------Nomes na Planilha---------------------------------------- -->
+        <thead>
+
+            <tr>
+                <th>Patrimônio</th>
+                <th>Tipo (Notebook/Desktop)</th>
+                <th>Modelo</th>
+                <th>Data Entrada</th>
+                <th>Responsável</th>
+                <th>Setor</th>
+                <th>Status (Ativo/Danificado/Substituído)</th>
+                <th>Data Saída</th>
+                <th>Motivo Saída (Defeito/Upgrade/Troca)</th>
+                <th>Computador Substituído (Patrimônio)</th>
+                <th>Observações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- falta o banco de dados e o js pra complementar e da um cheirinho de 💩 -->
+        </tbody>
+    </table>
+    </section>
+    </main>
+
+    <!--<script src="/gerenciamento de computadores/js/script.js"></script>
+    <script src="/gerenciamento de computadores/js/banco.js"></script>-->
+    <script src="/js/auxiFunc.js"></script>
+    <script src="/js/exibirtela.js"></script>
+    <script src="/js/perfil_menu.js"></script>
+</body>
+
+</html>
