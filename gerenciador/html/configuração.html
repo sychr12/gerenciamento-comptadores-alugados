@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/config.css" />
+    <link rel="icon" href="../img/chart_16270065 (1).png" type="image/x-icon" />
+    <link rel="shortcut icon" href="../img/chart_16270065 (1).png" type="image/x-icon" />
+    <title>Configurações do Perfil</title>
+</head>
+
+<body>
+    <header>
+        <h1>Usuários</h1>
+        <p class="nome-user">Nome Aqui</p>
+        <div class="foto-perfil" onclick="toggleMenu()">
+            <img src="../img/teste1.gif" alt="Foto de perfil" />
+            <div id="menu-perfil" class="menu-perfil" style="display:none;">
+                <ul>
+                    <li><a class="menu-registro">Registrar um novo Usuario</a></li>
+                    <li><a class="alt-foto">Alterar foto</a></li>
+                    <li><a href="pagina_inicial.html">Computadores</a></li>
+                    <li><a href="configuração.html">Configurações</a></li>
+                    <li><a href="index.html">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- Container para lista de usuários -->
+    <div class="grid_container">
+        <div class="header_grid">
+            <p>foto-perfil</p>
+            <p>ID</p>
+            <p>Nome</p>
+            <p>Cargo</p>
+            <p>Nível</p>
+            <p>Categoria</p>
+            <p>Data de Cadastro</p>
+            <p>Opções</p>
+        </div>
+        <!-- Usuários serão inseridos aqui via JS -->
+    </div>
+
+    <!-- Formulário de edição / criação -->
+    <div class="settings-container" style="display: none;">
+        <div class="settings-header">
+            <h1>Configurações do Perfil</h1>
+        </div>
+
+        <div class="settings-content">
+            <input type="hidden" id="user-id" />
+
+            <div class="profile-section">
+                <img src="../img/teste1.gif" alt="Foto do perfil" class="profile-pic" />
+                <div class="profile-info">
+                    <h2 id="profile-nome">nome</h2>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Nome completo</label>
+                <input type="text" id="name" value="" />
+            </div>
+            <div class="form-group">
+                <label for="cargo-select">Cargo</label>
+                <select id="cargo-select" name="cargo" required>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Jovem Aprendiz">Jovem Aprendiz</option>
+                    <option value="Estagiario">Estagiario</option>
+                    <option value="Acessor">Acessor</option>
+                    <option value="Supervisor">Supervisor</option>
+                    <option value="Gestor">Gestor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="categoria">Categoria</label>
+                <input type="text" id="categoria" value="" />
+            </div>
+            <div class="form-group">
+                <label for="senha">Nova senha</label>
+                <input type="password" id="senha">
+            </div>
+            <div>
+                <label for="reset">O usuário deve alterar a senha ao logar.</label>
+                <input type="checkbox" id="reset">
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <div>
+                <button class="btn btn-secondary" id="cancelar" type="button">Cancelar</button>
+                <button class="btn" id="salvar" type="button">Salvar alterações</button>
+            </div>
+            <button class="btn btn-danger" id="excluir" type="button">Excluir</button>
+        </div>
+    </div>
+    <div class="alt-foto-box">
+        <input type="file" accept="image/*">
+        <button class="btn-env-imagem">Salvar</button>
+    </div>
+
+    <script src="../js/auxiFunc.js"></script>
+    <script src="../js/perfil_menu.js"></script>
+    <script src="../js/buscar_usuarios.js"></script>
+</body>
+
+</html>
