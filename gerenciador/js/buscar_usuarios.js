@@ -27,8 +27,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p>${usuario.categoria}</p>
                     <p>${usuario.data_cadastro}</p>
                     <p class="p-btn">
-                        <button class="btn-editar">Editar</button>
-                        <button class="btn-excluir">Excluir</button>
+                        <button class="btn-editar">
+                        <img src="/gerenciador/imagens/ferramenta-lapis.png" alt="btn-edita" class="btn-editar"/>
+                        </button>
+
+                        <button class="btn-excluir">
+                         <img src="/gerenciador/imagens/lata-de-lixo.png" alt="btn-excluir" class="btn-excluir"/>
+                         </button>
+                        </button>
                     </p>
                 `;
                 container.appendChild(row);
