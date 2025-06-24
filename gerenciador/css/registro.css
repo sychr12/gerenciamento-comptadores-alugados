@@ -1,0 +1,255 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    
+}
+
+h2 {
+    text-align: center;
+    margin-top: 40px;
+    color: #333;
+}
+
+form {
+    background: #fff;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px 25px 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form select {
+    width: 400px;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 5px 0;
+}
+
+form select:focus {
+    outline: none;
+    border-color: #0271e7;
+    box-shadow: 0 0 0 2px rgba(2, 113, 231, 0.2);
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="Categoria"]{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="Categoria"],
+input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button[type="submit"] {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+    background: #0056b3;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0271e7e5;
+    color: white;
+    padding: 1px 1px;
+    text-align: center;
+}
+header p{
+    font-size: 20px;
+    background: none;
+}
+
+header img{
+    margin-right: 1rem;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: -5px;
+    margin-left: 1rem;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 50px;
+    width: 50px; 
+}
+
+header img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+/* ...perfil menu(sim mandei o chat deixa mais bonito porque tava foda)...*/
+.menu-perfil {
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: none;
+    right: 10px;
+    top: 60px;
+    min-width: 180px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(2, 113, 231, 0.15), 0 1.5px 6px rgba(0,0,0,0.08);
+    z-index: 100;
+    overflow: hidden;
+    padding: 0;
+    animation: fadeInMenu 0.3s;
+}
+.menu-registro, .alt-foto, .alt-foto{
+    cursor: pointer;
+}
+
+p{
+    margin: 0;
+    padding: 10px 20px;
+    background: #0271e7e5;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+} 
+
+@keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(-10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.menu-perfil::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 24px;
+    border-width: 0 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    filter: drop-shadow(0 -2px 2px rgba(2,113,231,0.08));
+}
+
+.menu-perfil ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-perfil li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.menu-perfil li:last-child {
+    border-bottom: none;
+}
+
+.menu-perfil a {
+    display: block;
+    padding: 14px 22px;
+    text-decoration: none;
+    color: #0271e7;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.menu-perfil a:hover {
+    background: #f4f8ff;
+    color: #005bb5;
+}
+
+.cadastro_check{
+    display: flex;
+    align-items: center;
+}
+.cadastro_check input{
+    height: 20px;
+    width: 20px;
+    margin-left: 20px;
+}
+.alt-foto-box{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+.alt-foto-box:hover {
+    background-color: #f0f0f0;
+}
+.alt-foto-box input[type="file"] {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-env-imagem {
+    padding: 10px 16px;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+}
+
+.btn-env-imagem:hover {
+    background-color: #45a049;
+    transform: scale(1.02);
+}
