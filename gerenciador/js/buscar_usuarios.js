@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 row.innerHTML = `
                     <div class="perfil-container">
-                        <img src="${usuario.imagem_perfil}" alt="foto de perfil" class="perfil-foto" style="border-radius:50%"/>
+                        <img src="/gerenciador/imagens/default.png" alt="foto de perfil" class="perfil-foto"/>
                     </div>
                     <p>${usuario.id}</p>
                     <p>${usuario.nome}</p>

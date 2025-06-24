@@ -67,25 +67,4 @@ class AuxiFunc{
             alert(`Esse ne requisição: ${error}`)
         }
     }
-    static async uploadImg(file, id){
-        if(!file){
-            alert("Nenhum arquivo foi selecionado");
-            return;
-        }
-        try{
-            const infoData = new FormData();
-            infoData.append("image", file);
-            infoData.append("id", id);
-
-            const resp = await fetch(`${AuxiFunc.address}uploadImg.php`,{
-                method: "POST",
-                body: infoData
-            });
-            const data = await resp.json();
-            return {status: data.success, message: data.message};
-        }catch(error){
-            alert("Erro na requisição: " + error)
-        }
-        
-    }
 }

@@ -17,7 +17,7 @@ if ($conn->connect_error) {
     exit();
 }
 
-$sql = "SELECT id, nome, cargo, nivel, categoria, data_cadastro, imagem_perfil FROM usuarios";
+$sql = "SELECT id, nome, cargo, nivel, categoria, data_cadastro FROM usuarios";
 $result = $conn->query($sql);
 
 $dados = [];

@@ -396,7 +396,9 @@ header img:hover {
 .perfil-foto {
     height: 80px;
     width: 80px;
-    border-radius: 50%;
+    object-fit: cover;
+
+
 }
 
 .alt-foto-box {

@@ -18,19 +18,6 @@ let altFoto = document.querySelector(".alt-foto");
 altFoto.addEventListener("click", function(){
     let menuFoto = document.querySelector(".alt-foto-box");
     menuFoto.style.display = "flex";
-    let buttonEnv = document.querySelector(".btn-env-imagem");
-    buttonEnv.addEventListener("click", async function(){
-        let arquivo = document.querySelector(".input-img").files[0];
-        let resultado = await AuxiFunc.uploadImg(arquivo, Number(sessionStorage.getItem("id")));
-        if(resultado.status){
-            alert("Imagem registrada");
-            menuFoto.style.display = "none";
-        }else{
-            console.log(`Mensagem de erro: ${resultado.message}`)
-            alert("Ocorreu algum erro");
-        }
-    })
-
 })
 // Fecha o menu ao clicar fora
 document.addEventListener('click', function(event) {
