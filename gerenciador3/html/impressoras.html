@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/imp.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <header>
+        <h1>Impressoras disponíveis</h1>
+        <nav class="submenu" aria-label="Navegação principal">
+            <ul>
+                <li>
+                    <a href="info_computadores.html" aria-label="Página inicial"><i class="bx bx-home"></i></a>
+                </li>
+                <li>
+                    <a href="novo_computador.html" aria-label="Computadores"><i class="bx bx-desktop"></i></a>
+                </li>
+                <li>
+                    <a href="../html/impressoras.html" aria-label="impressora"><i class="bx bx-printer"></i></a>
+                </li>
+            </ul>
+        </nav>
+        <p class="nome-user">Nome Aqui</p>
+        <div class="foto-perfil" onclick="toggleMenu()" aria-label="Abrir menu de perfil" tabindex="0">
+            <img src="../img/teste1.gif" alt="Foto de perfil do usuário" />
+            <div id="menu-perfil" class="menu-perfil" tabindex="0">
+                <ul>
+                    <li><a href="#" class="menu-registro"><i class="bx bx-user-plus"></i> Registrar um novo Usuário</a></li>
+                    <li><a href="#" class="alt-foto"><i class="bx bx-camera"></i> Alterar foto</a></li>
+                    <li><a href="info_computadores.html"><i class="bx bx-desktop"></i> Computadores</a></li>
+                    <li><a href="configuração.html"><i class="bx bx-cog"></i> Configurações</a></li>
+                    <li><a href="index.html"><i class="bx bx-log-out"></i> Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="Tema">
+    </div>
+
+    <div class="container">
+      <div class="impressoras-lista">
+        <div class="impressora-card">
+          <h3>HP LaserJet Pro M404dn</h3>
+          <p><strong>Patrimônio:</strong> 12345</p>
+          <p><strong>Ip:</strong> 19.90.1.03</p>
+          <p><strong>MAC:</strong> 11231dd34ef4</p>
+          <p><strong>Localização:</strong> Sala 101</p>
+          <p><strong>Tipo:</strong> Laser</p>
+          <div class="status disponivel">
+            <i class="fas fa-check-circle"></i> Disponível
+          </div>
+        </div>
+
+        <div class="impressora-card">
+          <h3>Brother HL-1202</h3>
+          <p><strong>Patrimônio:</strong> 67890</p>
+          <p><strong>Ip:</strong> 19.90.1.03</p>
+          <p><strong>MAC:</strong> 11231dd34ef4</p>
+          <p><strong>Localização:</strong> Sala 202</p>
+          <p><strong>Tipo:</strong> Laser</p>
+          <div class="status indisponivel">
+            <i class="fas fa-times-circle"></i> Indisponível
+          </div>
+        </div>
+
+        <div class="impressora-card">
+          <h3>Epson EcoTank L3150</h3>
+          <p><strong>Patrimônio:</strong> 11223</p>
+          <p><strong>Ip:</strong> 19.90.1.03</p>
+          <p><strong>MAC:</strong> 11231dd34ef4</p>
+          <p><strong>Localização:</strong> Sala 303</p>
+          <p><strong>Tipo:</strong> Jato de tinta</p>
+          <div class="status disponivel">
+            <i class="fas fa-check-circle"></i> Disponível
+          </div>
+        </div>
+
+        <div class="impressora-card">
+          <h3>Canon G3111</h3>
+          <p><strong>Patrimônio:</strong> 44556</p>
+          <p><strong>Ip:</strong> 19.90.1.03</p>
+          <p><strong>MAC:</strong> 11231dd34ef4</p>
+          <p><strong>Localização:</strong> Sala 404</p>
+          <p><strong>Tipo:</strong> Jato de tinta</p>
+          <div class="status indisponivel">
+            <i class="fas fa-times-circle"></i> Indisponível
+          </div>
+        </div>
+
+        <div class="impressora-card">
+          <div class="impressora-detalhes" id="detalhesImpressora">
+            <p>Nenhuma impressora cadastrada ainda.</p>
+          </div>
+          <div class="status disponivel">
+            <i class="fas fa-check-circle"></i> Disponível
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/auxiFunc.js"></script>
+    <script src="../js/teste.js"></script>
+    <script src="../js/perfil_menu.js"></script>
+    <div class="alt-foto-box">
+      <input type="file" accept="image/*" />
+      <button class="btn-env-imagem">Salvar</button>
+    </div>
+  </body>
+</html>
