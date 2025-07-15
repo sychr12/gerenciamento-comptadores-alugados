@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pagina_central.css" />
+    <link rel="icon" href="../img/chart_16270065 (1).png" type="image/x-icon" />
+    <title>Cadastro de Computador</title>
+  </head>
+  <body>
+    <!-- ===================== HEADER ===================== -->
+    <header>
+      <h1>Cadastro</h1>
+      <nav class="submenu">
+        <ul>
+          <li>
+            <a href="../html/info_computadores.html"><i class="bx bx-home"></i></a>
+          </li>
+          <li>
+            <a href="../html/novo_computador.html"><i class="bx bx-desktop"></i></a>
+          </li>
+          <li>
+            <a href="../html/impressoras.html"><i class="bx bx-printer"></i></a>
+          </li>
+        </ul>
+      </nav>
+      <!-- ===== Perfil do Usuário ===== -->
+      <p class="nome-user"></p>
+      <div class="foto-perfil" onclick="toggleMenu()">
+        <img src="../img/chart_16270065 (1).png" alt="Foto de perfil" />
+        <div id="menu-perfil" class="menu-perfil">
+          <ul>
+            <li><a class="menu-registro">Registrar um novo Usuário</a></li>
+            <li><a class="alt-foto">Alterar foto</a></li>
+            <li><a href="../html/pagina_inicial.html">Computadores</a></li>
+            <li><a href="../html/configuração.html">Configurações</a></li>
+            <li><a href="../html/index.html">Sair</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================== TÍTULO ===================== -->
+    <h2>Adicionar Novo Computador</h2>
+
+    <!-- ===================== MAIN ===================== -->
+    <main>
+      <!-- ===== Formulário de Cadastro de Computadores ===== -->
+      <section>
+        <form id="computerForm">
+          <label for="id">Patrimônio:</label>
+          <input type="number" id="id" name="id" required />
+
+          <label for="status">Tipo:</label>
+          <select id="status" name="status" required>
+            <option value="" disabled selected>Selecione o tipo</option>
+            <option value="Notebook">Notebook</option>
+            <option value="Desktop">Desktop</option>
+          </select>
+
+          <label for="model">Modelo:</label>
+          <select id="model" name="model" required>
+            <option value="" disabled selected>Selecione o modelo</option>
+            <option value="Compaq">Compaq</option>
+            <option value="Positivo">Positivo</option>
+          </select>
+
+          <label for="entryDate">Data de Entrada:</label>
+          <input type="date" id="entryDate" name="entryDate" required />
+
+          <label for="Resp">Responsável:</label>
+          <input type="text" id="Resp" name="Resp" required />
+
+          <label for="Setor">Setor:</label>
+          <input type="text" id="Setor" name="Setor" required />
+
+          <label for="pronto">Status:</label>
+          <select id="pronto" name="pronto" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="ativo">Ativo</option>
+            <option value="desativado">Desativado</option>
+            <option value="Substituído">Substituído</option>
+          </select>
+
+          <label for="exitDate">Data de Saída:</label>
+          <input type="date" id="exitDate" name="exitDate" />
+
+          <label for="saidamt">Motivo da Saída:</label>
+          <select id="saidamt" name="saidamt">
+            <option value="" disabled selected>Selecione</option>
+            <option value="Defeito">Defeito</option>
+            <option value="Upgrade">Upgrade</option>
+            <option value="Troca">Troca</option>
+          </select>
+
+          <label for="Patrimonio">Computador Substituído (Patrimônio):</label>
+          <input type="number" id="Patrimonio" name="Patrimonio" />
+
+          <label for="obs">Observações:</label>
+          <input
+            type="text"
+            id="obs"
+            name="obs"
+            placeholder="Ex: Defeito, etc..."
+          />
+
+          <button class="botao" type="submit">Adicionar</button>
+        </form>
+      </section>
+      <!-- ===== Fim do Formulário ===== -->
+    </main>
+
+    <!-- ===================== SCRIPTS ===================== -->
+    <script src="../js/auxiFunc.js"></script>
+    <script src="../js/teste.js"></script>
+    <script src="../js/perfil_menu.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const dadosEdicao = localStorage.getItem('computadorEdicao');
+          if (dadosEdicao) {
+              const comp = JSON.parse(dadosEdicao);
+              document.getElementById('id').value = comp.id || '';
+              document.getElementById('id').setAttribute('readonly', true);
+              document.getElementById('status').value = comp.status || '';
+              document.getElementById('model').value = comp.model || '';
+              document.getElementById('entryDate').value = comp.entryDate || '';
+              document.getElementById('Resp').value = comp.Resp || '';
+              document.getElementById('Setor').value = comp.Setor || '';
+              document.getElementById('pronto').value = comp.pronto || '';
+              document.getElementById('exitDate').value = comp.exitDate !== '-' ? comp.exitDate : '';
+              document.getElementById('saidamt').value = comp.saidamt !== '-' ? comp.saidamt : '';
+              document.getElementById('Patrimonio').value = comp.Patrimonio !== '-' ? comp.Patrimonio : '';
+              document.getElementById('obs').value = comp.obs !== '-' ? comp.obs : '';
+              // Limpa o localStorage para não editar novamente sem querer
+              localStorage.removeItem('computadorEdicao');
+              // Troca o texto do botão para "Salvar Edição"
+              const btn = document.querySelector('#computerForm button[type="submit"]');
+              if (btn) btn.textContent = 'Salvar Edição';
+          }
+      });
+    </script>
+
+    <!-- ===================== ALTERAR FOTO ===================== -->
+    <div class="alt-foto-box">
+      <input type="file" accept="image/*" />
+      <button class="btn-env-imagem">Salvar</button>
+    </div>
+  </body>
+</html>
