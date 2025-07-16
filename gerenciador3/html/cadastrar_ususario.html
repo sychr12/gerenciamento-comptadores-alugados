@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/registro.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="icon" href="../img/chart_16270065 (1).png" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/chart_16270065 (1).png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>Novo Usuário</h1>
+        <nav class="submenu" aria-label="Navegação principal">
+            <ul>
+                <li>
+                    <a href="../html/info_computadores.html" aria-label="Página inicial"><i class="bx bx-home"></i></a>
+                </li>
+                <li>
+                    <a href="../html/novo_computador.html" aria-label="Novo computador"><i class="bx bx-desktop"></i></a>
+                </li>
+                <li>
+                    <a href="../html/impressoras.html" aria-label="Departamentos"><i class="bx bx-printer"></i></a>
+                </li>
+            </ul>
+        </nav>
+        <p class="nome-user"></p>
+        <div class="foto-perfil" onclick="toggleMenu()" aria-label="Abrir menu de perfil" tabindex="0">
+            <img src="../img/chart_16270065 (1).png" alt="Foto de perfil do usuário">
+            <div id="menu-perfil" class="menu-perfil" tabindex="0">
+                <ul>
+                    <li><a href="#" class="menu-registro"><i class="bx bx-user-plus"></i> Registrar novo usuário</a></li>
+                    <li><a href="#" class="alt-foto"><i class="bx bx-camera"></i> Alterar foto</a></li>
+                    <li><a href="../html/info_computadores.html"><i class="bx bx-desktop"></i> Computadores</a></li>
+                    <li><a href="../html/configuração.html"><i class="bx bx-cog"></i> Configurações</a></li>
+                    <li><a href="../html/index.html"><i class="bx bx-log-out"></i> Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h2>Cadastrar Novo Usuário</h2>
+        <form id="formCadastroUsuario" autocomplete="off">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required placeholder="Digite o nome completo">
+            </div>
+
+            <div class="form-group">
+                <label for="status">Cargo:</label>
+                <select id="status" name="status" required>
+                    <option value="" disabled selected>Selecione um cargo</option>
+                    <option value="Estagiario">Estagiário</option>
+                    <option value="Jovem Aprendiz">Jovem Aprendiz</option>
+                    <option value="Assessor">Assessor</option>
+                    <option value="Supervisor">Supervisor</option>
+                    <option value="Gestor">Gestor</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="categoria">Categoria:</label>
+                <input type="text" id="categoria" name="categoria" required placeholder="Digite a categoria">
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required placeholder="Digite a senha" autocomplete="new-password">
+            </div>
+
+            <div class="form-group cadastro_check">
+                <input type="checkbox" id="reset" class="check_reset">
+                <label for="reset">O usuário deve alterar a senha no primeiro login</label>
+            </div>
+
+            <button type="submit" class="btn-submit">Cadastrar</button>
+        </form>
+    </main>
+
+    <div class="alt-foto-box" style="display: none;">
+        <h3>Alterar Foto de Perfil</h3>
+        <input type="file" id="foto-perfil-input" accept="image/*" aria-label="Selecionar nova foto de perfil">
+        <button class="btn-env-imagem" aria-label="Salvar nova foto">Salvar</button>
+    </div>
+
+    <div class="overlay" style="display: none;"></div>
+
+    <script src="../js/auxiFunc.js"></script>
+    <script src="../js/cadastrar_usuario.js"></script>
+    <script src="../js/perfil_menu.js"></script>
+</body>
+</html>

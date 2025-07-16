@@ -1,0 +1,360 @@
+/* ======= VARIÁVEIS ======= */
+:root {
+  --primary-color: yellow;
+  --primary: #007bff;
+  --primary-dark: #0056b3;
+  --success: #28a745;
+  --danger: #dc3545;
+  --bg: #f8f9fa;
+  --white: #fff;
+  --text: #222;
+  --gray: #6c757d;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --radius: 12px;
+}
+
+/* ======= RESET ======= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ======= HEADER ======= */
+header {
+  background: #222;
+  color: var(--white);
+  padding: 0 32px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-top: 0;
+  font-weight: 700;
+  position: relative;
+  padding: 10px 0px 0px 0px;
+}
+
+.submenu {
+  display: block;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 17px 5px 0px 231px;
+  height: 60px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.submenu ul {
+  left: 139px;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 40px;
+}
+
+.submenu a {
+  color: var(--white);
+  font-size: 1.5rem;
+  transition: color 0.2s;
+}
+
+.submenu a:hover {
+  color: var(--primary);
+}
+
+.nome-user {
+  margin-left: 24px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.foto-perfil {
+  position: relative;
+  cursor: pointer;
+  margin-left: 24px;
+}
+
+.foto-perfil img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  object-fit: cover;
+  transition: border 0.2s;
+}
+
+.foto-perfil img:hover {
+  border: 2px solid var(--primary-dark);
+}
+
+.menu-perfil {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 60px;
+  background: var(--white);
+  color: var(--text);
+  min-width: 210px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  z-index: 10;
+  animation: fadeInMenu 0.3s;
+}
+
+.menu-perfil ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-perfil li {
+  border-bottom: 1px solid #eee;
+}
+
+.menu-perfil li:last-child {
+  border-bottom: none;
+}
+
+.menu-perfil a {
+  display: block;
+  padding: 14px 22px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.menu-perfil a:hover {
+  background: var(--bg);
+  color: var(--primary);
+}
+
+@keyframes fadeInMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======= TEMA ======= */
+.Tema {
+  margin-bottom: 24px;
+}
+
+.Tema h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+/* ======= CONTAINER ======= */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px 32px 16px;
+}
+
+.impressoras-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 28px;
+}
+
+/* ======= CARD DE IMPRESSORA ======= */
+.impressora-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 22px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.18s, box-shadow 0.18s;
+  border-left: 5px solid var(--primary-color);
+  position: relative;
+}
+
+.impressora-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
+}
+
+.impressora-card h3 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.impressora-card p {
+  font-size: 1rem;
+  color: var(--gray);
+  margin-bottom: 2px;
+}
+
+.impressora-card strong {
+  color: var(--text);
+}
+
+.impressora-detalhes {
+  color: var(--gray);
+  font-style: italic;
+  font-size: 1rem;
+  text-align: center;
+  margin: 18px 0;
+}
+
+/* ======= STATUS ======= */
+.status {
+  margin-top: 10px;
+  padding: 7px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  font-size: 1rem;
+}
+
+.status.disponivel {
+  color: var(--success);
+  background: #eafaf1;
+}
+
+.status.indisponivel {
+  color: var(--danger);
+  background: #fdeaea;
+}
+
+.status i {
+  font-size: 1.2rem;
+}
+
+/* ======= RESPONSIVO ======= */
+@media (max-width: 900px) {
+  .container {
+    max-width: 98vw;
+    padding: 0 6px 24px 6px;
+  }
+
+  .impressoras-lista {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 12px 6px;
+    gap: 10px;
+  }
+
+  .submenu ul {
+    gap: 10px;
+  }
+
+  .Tema {
+    padding: 16px 0 10px 0;
+  }
+
+  .container {
+    padding: 0 2px 16px 2px;
+  }
+
+  .impressora-card {
+    padding: 16px 8px 12px 8px;
+  }
+}
+
+/* ======= UTILITÁRIOS ======= */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 8px;
+}
+
+
+.bx {
+  font-family: boxicons !important;
+  font-weight: 400;
+  font-style: normal;
+  color: yellow;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+  display: inline-block;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.alt-foto-box {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: var(--shadow-md);
+  z-index: 1100;
+  border: none;
+}
+
+.alt-foto-box h3 {
+  margin: 0;
+  color: var(--dark-color);
+}
+
+.alt-foto-box input[type="file"] {
+  width: 100%;
+  padding: 15px;
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.alt-foto-box input[type="file"]:hover {
+  border-color: var(--primary-color);
+  background: #f8f9fa;
+}
