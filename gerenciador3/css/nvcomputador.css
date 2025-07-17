@@ -29,6 +29,7 @@ body {
     padding: 0;
     color: var(--text-color);
     line-height: 1.6;
+    overflow-y: clip;
 }
 
 /* ===================== HEADER ===================== */

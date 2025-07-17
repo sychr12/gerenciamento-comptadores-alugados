@@ -1,16 +1,43 @@
 /* ======= VARIÁVEIS ======= */
 :root {
-  --primary-color: yellow;
+  /* Cores principais */
   --primary: #007bff;
   --primary-dark: #0056b3;
+  --primary-hover: #0056b3;
+  --primary-color: yellow;
+
+  --secondary-color: #6c757d;
   --success: #28a745;
+  --success-color: #28a745;
+  --success-hover: #218838;
   --danger: #dc3545;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --warning-hover: #e0a800;
+
   --bg: #f8f9fa;
   --white: #fff;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+
   --text: #222;
+  --text-color: #333;
+  --text-light: #6c757d;
   --gray: #6c757d;
+
+  --border-color: #dee2e6;
+
+  /* Sidebar */
+  --sidebar-bg: #181818;
+  --sidebar-icon: #eeff00;
+  --sidebar-icon-hover: #ffeb3b;
+
+  /* Outros */
   --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
   --radius: 12px;
+  --transition: all 0.3s ease;
 }
 
 /* ======= RESET ======= */
@@ -29,7 +56,7 @@ body {
 
 /* ======= HEADER ======= */
 header {
-  background: #222;
+  background: black;
   color: var(--white);
   padding: 0 32px;
   height: 80px;
@@ -43,22 +70,16 @@ header {
 }
 
 header h1 {
-  display: block;
   font-size: 1.2rem;
   color: var(--primary-color);
-  margin-top: 0;
   font-weight: 700;
-  position: relative;
-  padding: 10px 0px 0px 0px;
+  padding: 10px 0 0 0;
 }
 
 .submenu {
   display: block;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  padding: 17px 5px 0px 231px;
+  color: var(--white);
+  padding: 17px 5px 0 231px;
   height: 60px;
   background: transparent;
   box-shadow: none;
@@ -68,8 +89,6 @@ header h1 {
   left: 139px;
   display: flex;
   list-style: none;
-  margin: 0;
-  padding: 0;
   gap: 40px;
 }
 
@@ -102,52 +121,86 @@ header h1 {
   border: 2px solid var(--primary-color);
   object-fit: cover;
   transition: border 0.2s;
+  display: block;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  height: 50px;
+  width: 50px;
+  object-fit: inherit;
+
+  transition: var(--transition);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .foto-perfil img:hover {
   border: 2px solid var(--primary-dark);
 }
 
+/* ======= MENU DE PERFIL ======= */
 .menu-perfil {
   display: none;
   position: absolute;
-  right: 0;
-  top: 60px;
-  background: var(--white);
-  color: var(--text);
-  min-width: 210px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  z-index: 10;
+  background: #fff;
+  right: 30px;
+  top: 80px;
+  min-width: 300px;
+  /* Aumenta a largura mínima */
+  border-radius: 16px;
+  /* Deixa mais arredondado */
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  overflow: hidden;
   animation: fadeInMenu 0.3s;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  font-size: 1.9rem;
+  /* Aumenta o tamanho da fonte */
+  padding: 8px 0;
+  /* Espaçamento vertical extra */
+}
+
+.menu-perfil::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 35px;
+  /* Ajusta para centralizar a seta */
+  border-width: 0 12px 12px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
 }
 
 .menu-perfil ul {
-  list-style: none;
-  padding: 0;
+  padding: 16px 0;
   margin: 0;
 }
 
 .menu-perfil li {
-  border-bottom: 1px solid #eee;
+  transition: var(--transition);
 }
 
-.menu-perfil li:last-child {
-  border-bottom: none;
+.menu-perfil li:hover {
+  background: #f8f9fa;
 }
 
 .menu-perfil a {
-  display: block;
-  padding: 14px 22px;
-  color: var(--text);
   text-decoration: none;
-  font-size: 1rem;
-  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 28px;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: var(--transition);
+  font-size: 1.0rem;
 }
 
 .menu-perfil a:hover {
-  background: var(--bg);
-  color: var(--primary);
+  color: var(--primary-color);
+  padding-left: 38px;
+}
+
+.menu-perfil .bx {
+  font-size: 1.35rem;
 }
 
 @keyframes fadeInMenu {
@@ -305,7 +358,6 @@ header h1 {
   border-radius: 8px;
 }
 
-
 .bx {
   font-family: boxicons !important;
   font-weight: 400;
@@ -320,6 +372,7 @@ header h1 {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ======= MODAL ALTERAR FOTO ======= */
 .alt-foto-box {
   position: fixed;
   display: none;
@@ -357,4 +410,20 @@ header h1 {
 .alt-foto-box input[type="file"]:hover {
   border-color: var(--primary-color);
   background: #f8f9fa;
+}
+
+.btn-env-imagem {
+  background: var(--success-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  width: 100%;
+}
+
+.btn-env-imagem:hover {
+  background: var(--success-hover);
 }

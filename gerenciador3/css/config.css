@@ -58,27 +58,19 @@ img .perfil-container {
 }
 
 img.perfil-foto {
-    width: 60px;
-    height: 60px;
+    width: 50px;
     object-fit: cover;
     border-radius: 50%;
-    
+    transition: var(--transition);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-img .perfil-foto {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid var(--sidebar-icon);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+
 
 
 
 img {
-    max-width: 30px;
+    max-width: 90px;
     height: auto;
     display: block;
 
@@ -92,6 +84,8 @@ img {
     border-radius: 8px;
     cursor: pointer;
     transition: var(--transition);
+    height: 40px;
+    width: 40px;
 }
 
 .btn-editar {
@@ -102,6 +96,8 @@ img {
     border-radius: 8px;
     cursor: pointer;
     transition: var(--transition);
+    height: 40px;
+    width: 40px;
 }
 
 
