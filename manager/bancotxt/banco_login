@@ -1,0 +1,23 @@
+-- Crie o banco de dados
+CREATE DATABASE testelogin;
+
+-- Use o banco de dados
+USE testelogin;
+
+-- Crie a tabela de usuários 
+CREATE TABLE usuarios (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+    cargo VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+    nivel INT(11) NOT NULL,
+    categoria VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+    senha VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+    data_cadastro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    reset VARCHAR(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO usuarios (nome, cargo, nivel, categoria, senha, reset)
+VALUES ('Administrador', 'Administrador', 3, 'Administrador', '1234', 'nao');
+
+
