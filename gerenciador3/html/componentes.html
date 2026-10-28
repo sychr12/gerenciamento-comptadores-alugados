@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/redesign.css">
+  <title>Componentes e suprimentos | Central de Equipamentos</title>
+</head>
+<body>
+  <header>
+    <h1>Materiais</h1>
+    <nav class="submenu" aria-label="Navegação principal">
+      <ul>
+        <li><a href="inicio.html" aria-label="Painel inicial"><i class="bx bx-home"></i></a></li>
+        <li><a href="info_computadores.html" aria-label="Lista de computadores"><i class="bx bx-list-ul"></i></a></li>
+        <li><a href="novo_computador.html" aria-label="Novo computador"><i class="bx bx-desktop"></i></a></li>
+        <li><a href="impressoras.html" aria-label="Impressoras"><i class="bx bx-printer"></i></a></li>
+        <li><a href="componentes.html" aria-label="Componentes e suprimentos" aria-current="page"><i class="bx bx-cube"></i></a></li>
+        <li><a href="relatorio.html" aria-label="Relatórios"><i class="bx bx-bar-chart-alt-2"></i></a></li>
+      </ul>
+    </nav>
+    <p class="nome-user"></p>
+    <div class="foto-perfil" onclick="toggleMenu()" aria-label="Abrir menu de perfil" tabindex="0">
+      <img src="../imagens/default.png" alt="Foto de perfil do usuário">
+      <div id="menu-perfil" class="menu-perfil" tabindex="0">
+        <ul>
+          <li><a href="cadastrar_ususario.html" class="menu-registro"><i class="bx bx-user-plus"></i> Registrar um novo usuário</a></li>
+          <li><a href="#" class="alt-foto"><i class="bx bx-camera"></i> Alterar foto</a></li>
+          <li><a href="info_computadores.html"><i class="bx bx-devices"></i> Computadores</a></li>
+          <li><a href="configuração.html"><i class="bx bx-cog"></i> Configurações</a></li>
+          <li><a href="index.html"><i class="bx bx-log-out"></i> Sair</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="materials-page">
+    <section class="page-intro materials-intro">
+      <div>
+        <span class="eyebrow">INVENTÁRIO DE MATERIAIS</span>
+        <h2>Componentes e suprimentos</h2>
+        <p>Controle periféricos, tintas e toners com níveis de estoque e compatibilidade.</p>
+      </div>
+      <button type="button" class="materials-add" id="new-material"><i class="bx bx-plus" aria-hidden="true"></i> Adicionar material</button>
+    </section>
+
+    <section class="materials-metrics" aria-label="Resumo do estoque" aria-live="polite">
+      <article><span class="materials-metric-icon"><i class="bx bx-cube" aria-hidden="true"></i></span><div><span>Itens cadastrados</span><strong id="materials-total">—</strong></div></article>
+      <article><span class="materials-metric-icon materials-ink-icon"><i class="bx bx-purchase-tag" aria-hidden="true"></i></span><div><span>Tintas e toners</span><strong id="materials-ink-total">—</strong></div></article>
+      <article><span class="materials-metric-icon materials-low-icon"><i class="bx bx-error-circle" aria-hidden="true"></i></span><div><span>Estoque baixo</span><strong id="materials-low-total">—</strong></div></article>
+    </section>
+
+    <section class="materials-toolbar" aria-label="Buscar e filtrar materiais">
+      <label class="materials-search" for="materials-search"><i class="bx bx-search" aria-hidden="true"></i><input id="materials-search" type="search" placeholder="Buscar por item, modelo, cor ou localização"></label>
+      <label class="sr-only" for="materials-filter">Filtrar materiais</label>
+      <select id="materials-filter">
+        <option value="all">Todos os materiais</option>
+        <option value="component">Componentes</option>
+        <option value="ink">Tintas e toners</option>
+        <option value="low">Estoque baixo</option>
+      </select>
+      <button type="button" class="materials-export" id="export-materials"><i class="bx bx-download" aria-hidden="true"></i> Exportar CSV</button>
+    </section>
+
+    <section class="materials-table-wrap" aria-label="Lista de componentes e suprimentos">
+      <table class="materials-table">
+        <thead><tr><th>Categoria</th><th>Item / modelo</th><th>Cor</th><th>Compatibilidade</th><th>Quantidade</th><th>Localização</th><th>Situação</th><th>Ações</th></tr></thead>
+        <tbody id="materials-rows"><tr><td colspan="8">Carregando materiais...</td></tr></tbody>
+      </table>
+    </section>
+    <p class="materials-result-count" id="materials-result-count" aria-live="polite">Carregando...</p>
+  </main>
+
+  <dialog class="materials-dialog" id="materials-dialog" aria-labelledby="materials-dialog-title">
+    <form id="materials-form">
+      <div class="materials-dialog-heading">
+        <div><span class="eyebrow">INVENTÁRIO DE MATERIAIS</span><h2 id="materials-dialog-title">Adicionar material</h2></div>
+        <button type="button" class="materials-dialog-close" aria-label="Fechar">&times;</button>
+      </div>
+      <input type="hidden" name="id">
+      <div class="materials-form-grid">
+        <label>Categoria
+          <select name="category" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="Teclado">Teclado</option><option value="Mouse">Mouse</option>
+            <option value="Monitor">Monitor</option><option value="Headset">Headset</option>
+            <option value="Cabo">Cabo</option><option value="Adaptador">Adaptador</option>
+            <option value="Tinta">Tinta</option><option value="Toner">Toner</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </label>
+        <label>Nome / modelo<input name="name" required maxlength="150" placeholder="Ex.: Logitech MK120"></label>
+        <label class="ink-field">Cor da tinta
+          <select name="color">
+            <option value="">Não se aplica</option><option value="Preto">Preto</option>
+            <option value="Ciano">Ciano</option><option value="Magenta">Magenta</option>
+            <option value="Amarelo">Amarelo</option><option value="Colorida">Colorida</option>
+          </select>
+        </label>
+        <label class="ink-field">Compatível com<input name="compatibility" maxlength="150" placeholder="Modelo da impressora"></label>
+        <label>Quantidade<input name="quantity" type="number" min="0" max="1000000" step="1" required value="0"></label>
+        <label>Estoque mínimo<input name="minimum_quantity" type="number" min="0" max="1000000" step="1" required value="1"></label>
+        <label class="materials-full-field">Localização<input name="location" maxlength="150" placeholder="Ex.: Almoxarifado, armário 2"></label>
+      </div>
+      <p class="materials-form-message" role="alert" hidden></p>
+      <div class="materials-dialog-actions"><button type="button" class="materials-cancel">Cancelar</button><button type="submit" class="materials-save">Salvar material</button></div>
+    </form>
+  </dialog>
+
+  <script src="../js/auxiFunc.js"></script>
+  <script src="../js/perfil_menu.js"></script>
+  <script src="../js/componentes.js"></script>
+  <div class="alt-foto-box"><input type="file" accept="image/*" aria-label="Selecionar foto de perfil"><button class="btn-env-imagem" type="button">Salvar</button></div>
+</body>
+</html>

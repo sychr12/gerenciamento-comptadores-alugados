@@ -1,15 +1,23 @@
-CREATE DATABASE gerenciamento CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE gerenciamento;
-CREATE TABLE computadores (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    status VARCHAR(20),
-    model VARCHAR(100),
-    entryDate DATE,
-    Resp VARCHAR(100),
-    Setor VARCHAR(100),
-    pronto VARCHAR(20),
-    exitDate DATE,
-    saidamt VARCHAR(50),
-    Patrimonio INT,
-    obs TEXT
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- Execute este arquivo dentro do banco PostgreSQL "gerenciamento".
+CREATE TABLE IF NOT EXISTS computadores (
+    id BIGINT PRIMARY KEY,
+    status VARCHAR(30) NOT NULL DEFAULT '',
+    model VARCHAR(100) NOT NULL DEFAULT '',
+    ownership VARCHAR(20) NOT NULL DEFAULT 'Alugado',
+    "entryDate" DATE,
+    "Resp" VARCHAR(150) NOT NULL DEFAULT '',
+    "Setor" VARCHAR(120) NOT NULL DEFAULT '',
+    pronto VARCHAR(30) NOT NULL DEFAULT '',
+    "exitDate" DATE,
+    saidamt VARCHAR(80) NOT NULL DEFAULT '',
+    "Patrimonio" VARCHAR(100),
+    "replacementName" VARCHAR(150) NOT NULL DEFAULT '',
+    "replacementModel" VARCHAR(100) NOT NULL DEFAULT '',
+    "replacementDate" DATE,
+    obs TEXT NOT NULL DEFAULT ''
+);
+
+ALTER TABLE computadores ADD COLUMN IF NOT EXISTS "replacementName" VARCHAR(150) NOT NULL DEFAULT '';
+ALTER TABLE computadores ADD COLUMN IF NOT EXISTS "replacementModel" VARCHAR(100) NOT NULL DEFAULT '';
+ALTER TABLE computadores ADD COLUMN IF NOT EXISTS "replacementDate" DATE;
+ALTER TABLE computadores ADD COLUMN IF NOT EXISTS ownership VARCHAR(20) NOT NULL DEFAULT 'Alugado';

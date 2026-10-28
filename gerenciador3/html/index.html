@@ -1,28 +1,67 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/login.css">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/login.css">
+  <title>Acessar | Central de Equipamentos</title>
 </head>
-<body>
-    <img src="../img/teste1.jpg" alt="">
-    <header>
-        <h1>Login</h1>
-        <form id="loginForm">
-            <input type="text" id="usuario" placeholder="Usuário" required>
-            <input type="password" id="senha" placeholder="Senha" required>
-            <button id="btnEnviar" type="button">Enviar</button>
+<body class="login-page">
+  <main class="login-layout">
+    <section class="login-visual" aria-label="Central de equipamentos">
+      <img src="../img/login-hero.svg" alt="Ilustração do painel de gestão de equipamentos">
+      <span class="login-brand"><i class="bx bx-shield-quarter" aria-hidden="true"></i> CENTRAL DE EQUIPAMENTOS</span>
+      <div class="login-visual-copy">
+        <span>GESTÃO DE ATIVOS</span>
+        <h2>Seu inventário.<br>Em um só lugar.</h2>
+        <p>Acompanhe computadores, impressoras e equipes com clareza e segurança.</p>
+      </div>
+      <div class="login-visual-stats" aria-label="Estatísticas da plataforma">
+        <div>
+          <span>Status</span>
+          <strong>Online</strong>
+        </div>
+        <div>
+          <span>Segurança</span>
+          <strong>Alta</strong>
+        </div>
+      </div>
+      <div class="login-visual-footer"><span class="login-live-dot" aria-hidden="true"></span> Plataforma de gestão interna</div>
+    </section>
+    <div class="login-column">
+      <header class="login-card">
+        <span class="login-kicker"><i class="bx bx-lock-alt" aria-hidden="true"></i> ACESSO SEGURO</span>
+        <h1>Bem-vindo de volta</h1>
+        <p class="login-subtitle">Entre com sua conta para acessar o inventário.</p>
+        <form id="loginForm" autocomplete="on">
+          <label for="usuario">Usuário</label>
+          <input type="text" id="usuario" placeholder="Digite seu usuário" autocomplete="username" maxlength="100" required>
+          <label for="senha">Senha</label>
+          <div class="password-control">
+            <input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password" maxlength="128" required>
+            <button type="button" id="toggle-password" aria-label="Mostrar senha" aria-pressed="false"><i class="bx bx-show" aria-hidden="true"></i></button>
+          </div>
+          <p id="login-message" class="login-message" role="alert" aria-live="polite" hidden></p>
+          <button id="btnEnviar" type="submit"><span>Entrar no sistema</span><i class="bx bx-right-arrow-alt" aria-hidden="true"></i></button>
         </form>
-    </header>
-    <div class="reset-box">
-        <p>Alterar senha</p>
-        <input type="password" placeholder="Nova Senha" class="rest_senha">
-        <input type="password" placeholder="Confirmar senha" class="reset_conf">
-        <button class="reset-login">Salvar</button>
+      </header>
+      <section class="reset-box" aria-labelledby="reset-heading" hidden>
+        <span class="login-kicker"><i class="bx bx-key" aria-hidden="true"></i> PRIMEIRO ACESSO</span>
+        <h1 id="reset-heading">Crie sua nova senha</h1>
+        <p>Para proteger sua conta, escolha uma senha com pelo menos 8 caracteres.</p>
+        <form id="resetForm" autocomplete="on">
+          <label class="sr-only" for="new-password">Nova senha</label>
+          <input type="password" id="new-password" placeholder="Nova senha (mínimo de 8 caracteres)" class="rest_senha" minlength="8" maxlength="128" autocomplete="new-password" required>
+          <label class="sr-only" for="confirm-password">Confirmar nova senha</label>
+          <input type="password" id="confirm-password" placeholder="Confirme a nova senha" class="reset_conf" minlength="8" maxlength="128" autocomplete="new-password" required>
+          <p id="reset-message" class="login-reset-message" role="alert" aria-live="polite" hidden></p>
+          <button class="reset-login" type="submit"><span>Salvar nova senha</span><i class="bx bx-check" aria-hidden="true"></i></button>
+        </form>
+      </section>
     </div>
-    <script src="../js/auxiFunc.js"></script>
-    <script src="../js/login.js"></script>
+  </main>
+  <script src="../js/auxiFunc.js"></script>
+  <script src="../js/login.js"></script>
 </body>
 </html>

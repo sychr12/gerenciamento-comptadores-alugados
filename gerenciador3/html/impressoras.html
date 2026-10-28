@@ -1,121 +1,96 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/imp.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/redesign.css" />
+    <title>Impressoras disponíveis</title>
   </head>
-
   <body>
     <header>
-        <h1>Impressoras disponíveis</h1>
-        <nav class="submenu" aria-label="Navegação principal">
-            <ul>
-                <li>
-                    <a href="../html/info_computadores.html" aria-label="Página inicial"><i class="bx bx-home"></i></a>
-                </li>
-                <li>
-                    <a href="../html/novo_computador.html" aria-label="Computadores"><i class="bx bx-desktop"></i></a>
-                </li>
-                <li>
-                    <a href="../html/impressoras.html" aria-label="impressora"><i class="bx bx-printer"></i></a>
-                </li>
-            </ul>
-        </nav>
-        <p class="nome-user"></p>
-        <div class="foto-perfil" onclick="toggleMenu()" aria-label="Abrir menu de perfil" tabindex="0">
-            <img src="../img/teste1.gif" alt="Foto de perfil do usuário" />
-            <div id="menu-perfil" class="menu-perfil" tabindex="0">
-                <ul>
-                    <li><a href="#" class="menu-registro"><i class="bx bx-user-plus"></i> Registrar um novo Usuário</a></li>
-                    <li><a href="#" class="alt-foto"><i class="bx bx-camera"></i> Alterar foto</a></li>
-                    <li><a href="../html/info_computadores.html"><i class="bx bx-desktop"></i> Computadores</a></li>
-                    <li><a href="../html/configuração.html"><i class="bx bx-cog"></i> Configurações</a></li>
-                    <li><a href="../html/index.html"><i class="bx bx-log-out"></i> Sair</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
-
-    <div class="Tema">
-    </div>
-
-    <div class="container">
-      <div class="impressoras-lista">
-        <div class="impressora-card">
-          <h3>HP LaserJet Pro M404dn</h3>
-          <p><strong>Patrimônio:</strong> 12345</p>
-          <p><strong>Ip:</strong> 19.90.1.03</p>
-          <p><strong>MAC:</strong> 11231dd34ef4</p>
-          <p><strong>Localização:</strong> Sala 101</p>
-          <p><strong>Tipo:</strong> Laser</p>
-          <div class="status disponivel">
-            <i class="fas fa-check-circle"></i> Disponível
-          </div>
-        </div>
-
-        <div class="impressora-card">
-          <h3>Brother HL-1202</h3>
-          <p><strong>Patrimônio:</strong> 67890</p>
-          <p><strong>Ip:</strong> 19.90.1.03</p>
-          <p><strong>MAC:</strong> 11231dd34ef4</p>
-          <p><strong>Localização:</strong> Sala 202</p>
-          <p><strong>Tipo:</strong> Laser</p>
-          <div class="status indisponivel">
-            <i class="fas fa-times-circle"></i> Indisponível
-          </div>
-        </div>
-
-        <div class="impressora-card">
-          <h3>Epson EcoTank L3150</h3>
-          <p><strong>Patrimônio:</strong> 11223</p>
-          <p><strong>Ip:</strong> 19.90.1.03</p>
-          <p><strong>MAC:</strong> 11231dd34ef4</p>
-          <p><strong>Localização:</strong> Sala 303</p>
-          <p><strong>Tipo:</strong> Jato de tinta</p>
-          <div class="status disponivel">
-            <i class="fas fa-check-circle"></i> Disponível
-          </div>
-        </div>
-
-        <div class="impressora-card">
-          <h3>Canon G3111</h3>
-          <p><strong>Patrimônio:</strong> 44556</p>
-          <p><strong>Ip:</strong> 19.90.1.03</p>
-          <p><strong>MAC:</strong> 11231dd34ef4</p>
-          <p><strong>Localização:</strong> Sala 404</p>
-          <p><strong>Tipo:</strong> Jato de tinta</p>
-          <div class="status indisponivel">
-            <i class="fas fa-times-circle"></i> Indisponível
-          </div>
-        </div>
-
-        <div class="impressora-card">
-          <div class="impressora-detalhes" id="detalhesImpressora">
-            <p>Nenhuma impressora cadastrada ainda.</p>
-          </div>
-          <div class="status disponivel">
-            <i class="fas fa-check-circle"></i> Disponível
-          </div>
+      <h1>Impressoras</h1>
+      <nav class="submenu" aria-label="Navegação principal">
+        <ul>
+          <li><a href="../html/inicio.html" aria-label="Painel inicial"><i class="bx bx-home"></i></a></li>
+          <li><a href="../html/info_computadores.html" aria-label="Lista de computadores"><i class="bx bx-list-ul"></i></a></li>
+          <li><a href="../html/novo_computador.html" aria-label="Computadores"><i class="bx bx-desktop"></i></a></li>
+          <li><a href="../html/impressoras.html" aria-label="Impressoras" aria-current="page"><i class="bx bx-printer"></i></a></li>
+          <li><a href="../html/componentes.html" aria-label="Componentes e suprimentos"><i class="bx bx-cube"></i></a></li>
+          <li><a href="../html/relatorio.html" aria-label="Relatórios"><i class="bx bx-bar-chart-alt-2"></i></a></li>
+        </ul>
+      </nav>
+      <p class="nome-user"></p>
+      <div class="foto-perfil" onclick="toggleMenu()" aria-label="Abrir menu de perfil" tabindex="0">
+        <img src="../imagens/default.png" alt="Foto de perfil do usuário" />
+        <div id="menu-perfil" class="menu-perfil" tabindex="0">
+          <ul>
+            <li><a href="#" class="menu-registro"><i class="bx bx-user-plus"></i> Registrar um novo usuário</a></li>
+            <li><a href="#" class="alt-foto"><i class="bx bx-camera"></i> Alterar foto</a></li>
+            <li><a href="../html/info_computadores.html"><i class="bx bx-desktop"></i> Computadores</a></li>
+            <li><a href="../html/configuração.html"><i class="bx bx-cog"></i> Configurações</a></li>
+            <li><a href="../html/index.html"><i class="bx bx-log-out"></i> Sair</a></li>
+          </ul>
         </div>
       </div>
-    </div>
+    </header>
+
+    <main class="container printer-page">
+      <section class="page-intro">
+        <div>
+          <span class="eyebrow">INVENTÁRIO DE IMPRESSÃO</span>
+          <h2>Impressoras</h2>
+          <p>Acompanhe localização, modelo e disponibilidade dos equipamentos.</p>
+        </div>
+        <div class="printer-summary" aria-live="polite">
+          <span><strong id="printer-total">0</strong> equipamentos</span>
+          <span><strong id="printer-available">0</strong> disponíveis</span>
+        </div>
+      </section>
+      <section class="printer-toolbar" aria-label="Filtros de impressoras">
+        <label class="printer-search"><i class="bx bx-search" aria-hidden="true"></i>
+          <input id="printer-search" type="search" placeholder="Buscar por modelo, patrimônio ou sala" aria-label="Buscar impressoras" />
+        </label>
+        <div class="printer-filters" role="group" aria-label="Filtrar por disponibilidade">
+          <button type="button" class="is-active" data-printer-filter="all" aria-pressed="true">Todas</button>
+          <button type="button" data-printer-filter="available" aria-pressed="false">Disponíveis</button>
+          <button type="button" data-printer-filter="unavailable" aria-pressed="false">Indisponíveis</button>
+        </div>
+        <button type="button" id="export-printers" class="printer-export"><i class="bx bx-download" aria-hidden="true"></i> Exportar CSV</button>
+        <button type="button" id="new-printer" class="printer-add"><i class="bx bx-plus" aria-hidden="true"></i> Nova impressora</button>
+      </section>
+      <div class="impressoras-lista" aria-live="polite">
+        <p class="printer-loading" role="status">Carregando impressoras...</p>
+      </div>
+      <p class="printer-empty" hidden>Nenhuma impressora corresponde a essa busca.</p>
+    </main>
+
+    <dialog class="printer-dialog" id="printer-dialog" aria-labelledby="printer-dialog-title">
+      <form id="printer-form">
+        <div class="printer-dialog-heading">
+          <div><span class="eyebrow">INVENTÁRIO DE IMPRESSÃO</span><h2 id="printer-dialog-title">Nova impressora</h2></div>
+          <button type="button" class="printer-dialog-close" aria-label="Fechar">&times;</button>
+        </div>
+        <input type="hidden" name="id" />
+        <label>Patrimônio<input name="patrimonio" required maxlength="80" autocomplete="off" /></label>
+        <label>Modelo<input name="modelo" required maxlength="180" autocomplete="off" /></label>
+        <div class="printer-form-row">
+          <label>Endereço IP<input name="ip" required maxlength="80" placeholder="192.168.0.10" autocomplete="off" /></label>
+          <label>Endereço MAC<input name="mac" required maxlength="80" placeholder="00:1A:2B:3C:4D:5E" autocomplete="off" /></label>
+        </div>
+        <div class="printer-form-row">
+          <label>Localização<input name="localizacao" required maxlength="180" placeholder="Sala ou setor" /></label>
+          <label>Tipo<select name="tipo" required><option value="" disabled selected>Selecione</option><option>Laser</option><option>Jato de tinta</option><option>Térmica</option><option>Multifuncional</option></select></label>
+        </div>
+        <label class="printer-availability"><input type="checkbox" name="disponivel" checked /> Impressora disponível</label>
+        <p class="printer-form-message" role="alert" hidden></p>
+        <div class="printer-dialog-actions"><button type="button" class="printer-cancel">Cancelar</button><button type="submit" class="printer-save">Salvar impressora</button></div>
+      </form>
+    </dialog>
 
     <script src="../js/auxiFunc.js"></script>
-    <script src="../js/teste.js"></script>
     <script src="../js/perfil_menu.js"></script>
-    <div class="alt-foto-box">
-      <input type="file" accept="image/*" />
-      <button class="btn-env-imagem">Salvar</button>
-    </div>
+    <script src="../js/impressoras.js?v=3"></script>
+    <div class="alt-foto-box"><input type="file" accept="image/*" /><button class="btn-env-imagem">Salvar</button></div>
   </body>
 </html>

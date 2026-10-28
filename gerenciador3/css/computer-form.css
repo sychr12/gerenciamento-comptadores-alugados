@@ -1,0 +1,131 @@
+/* Cadastro de computadores: use a balanced three-column topbar. */
+@media (min-width: 761px) {
+  body:not(:has(#loginForm)) > header:has(+ main.computer-form-page) {
+    position: sticky;
+    top: 0;
+    z-index: 80;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    width: 100%;
+    height: 78px;
+    min-height: 78px;
+    margin: 0;
+    padding: 10px clamp(20px, 4vw, 56px);
+    overflow: visible;
+  }
+  body:not(:has(#loginForm)) > header:has(+ main.computer-form-page) > h1 {
+    grid-column: 1;
+    margin: 0;
+    justify-self: start;
+  }
+  body:not(:has(#loginForm)) > header:has(+ main.computer-form-page) nav.submenu {
+    position: static;
+    grid-column: 2;
+    margin: 0;
+    transform: none;
+    justify-self: center;
+  }
+  body:not(:has(#loginForm)) > header:has(+ main.computer-form-page) .nome-user {
+    position: absolute;
+    top: 50%;
+    right: calc(clamp(20px, 4vw, 56px) + 56px);
+    margin: 0;
+    transform: translateY(-50%);
+    line-height: 1.2;
+  }
+  body:not(:has(#loginForm)) > header:has(+ main.computer-form-page) .foto-perfil {
+    grid-column: 3;
+    grid-row: 1;
+    position: relative;
+    margin: 0;
+    justify-self: end;
+  }
+  body:not(:has(#loginForm)) > header:has(+ main.computer-form-page) .menu-perfil {
+    position: absolute;
+    z-index: 82;
+  }
+}
+
+body:not(:has(#loginForm)) main.computer-form-page:has(#computerForm) {
+  width: min(calc(100% - 36px), 1040px);
+  margin: clamp(26px, 5vh, 54px) auto 64px;
+  padding: 0;
+}
+
+.computer-form-intro {
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding: 0 2px 18px;
+  border-bottom: 1px solid #293650;
+}
+.computer-form-intro h2 {
+  margin: 7px 0 0;
+  color: #f3f6fc;
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 780;
+  letter-spacing: -.045em;
+  line-height: 1.15;
+}
+.computer-form-intro p { margin: 8px 0 0; color: #9ba9c1; font-size: 14px; }
+
+#computerForm {
+  grid-template-columns: minmax(190px, .72fr) minmax(0, 1.28fr);
+  gap: 13px 24px;
+  padding: clamp(22px, 4vw, 38px);
+  border-color: #2c3b56;
+  border-radius: 19px;
+  background: linear-gradient(145deg, #151f33, #101827 76%);
+  box-shadow: 0 24px 70px rgb(0 0 0 / 26%);
+}
+#computerForm label { align-self: center; color: #c2cde0; font-size: 12px; }
+#computerForm input,
+#computerForm select {
+  min-height: 46px;
+  border-color: #35445f;
+  border-radius: 11px;
+  background: #0c1627;
+  color: #eef3fc;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+#computerForm select option { background: #121d30; color: #eef3fc; }
+#computerForm input::placeholder { color: #7888a2; }
+#computerForm input:hover,
+#computerForm select:hover { border-color: #526481; }
+#computerForm input:focus,
+#computerForm select:focus {
+  border-color: var(--night-cyan);
+  background: #101c2f;
+  box-shadow: 0 0 0 4px rgb(98 226 202 / 10%);
+  outline: 0;
+}
+#computerForm button[type="submit"] {
+  min-height: 48px;
+  margin-top: 5px;
+  border-radius: 11px;
+  background: linear-gradient(100deg, #62e2ca, #79e5d4);
+  box-shadow: 0 10px 28px rgb(98 226 202 / 14%);
+  font-size: 13px;
+  letter-spacing: .02em;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+#computerForm button[type="submit"]:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 32px rgb(98 226 202 / 22%);
+}
+#computerForm button[type="submit"]:active { transform: translateY(0); }
+
+@media (max-width: 760px) {
+  body:not(:has(#loginForm)) main.computer-form-page:has(#computerForm) {
+    width: calc(100% - 24px);
+    margin-top: 24px;
+  }
+  #computerForm { grid-template-columns: 1fr; gap: 9px; padding: 20px; }
+  #computerForm label { margin-top: 5px; }
+  #computerForm button[type="submit"] { grid-column: auto; margin-top: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #computerForm { animation: none; }
+}

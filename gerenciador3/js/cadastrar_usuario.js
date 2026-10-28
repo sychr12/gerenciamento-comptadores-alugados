@@ -1,45 +1,49 @@
-document.getElementById('formCadastroUsuario').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    let status;
-    let statusValue = document.getElementById("status");
+const registrationForm = document.getElementById('formCadastroUsuario');
+const roleSelect = document.getElementById('status');
+if (roleSelect && Number(sessionStorage.getItem('nivel')) < 3) {
+    const managerOption = roleSelect.querySelector('option[value="Gestor"]');
+    if (managerOption) managerOption.disabled = true;
+}
 
-    if(statusValue.value === "Estagiario" || statusValue.value === "Jovem Aprendiz"){
-        status = 1;
-    }else if(statusValue.value === "Acessor" || statusValue.value === "Supervisor"){
-        status = 2;
-    }else if(statusValue.value === "Gestor"){
-        status = 3;
-    }
-    let getReset = AuxiFunc.checkReset(document.querySelector(".check_reset").checked)
-    console.log(`Valor do getReset: ${getReset}`);
+registrationForm?.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (!registrationForm.reportValidity()) return;
+
+    const submitButton = registrationForm.querySelector('button[type="submit"]');
+    const originalLabel = submitButton.textContent;
+    const role = document.getElementById('status').value;
+    const levels = {
+        Estagiario: 1,
+        'Jovem Aprendiz': 1,
+        Assessor: 2,
+        Supervisor: 2,
+        Gestor: 3
+    };
     const formData = {
-        nome: document.getElementById('nome').value,
-        cargo: document.getElementById('status').value,
-        nivel: status,
-        categoria: document.getElementById('categoria').value,
+        nome: document.getElementById('nome').value.trim(),
+        cargo: role,
+        nivel: levels[role],
+        categoria: document.getElementById('categoria').value.trim(),
         senha: document.getElementById('senha').value,
-        reset: getReset
+        reset: AuxiFunc.checkReset(document.querySelector('.check_reset').checked)
+    };
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Cadastrando…';
+    try {
+        const data = await AuxiFunc.requestJSON(`${AuxiFunc.address}cadastrar_usuario.php`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+        if (!data.success) throw new Error(data.message || 'Não foi possível cadastrar o usuário.');
+        alert(data.message || 'Usuário cadastrado com sucesso!');
+        registrationForm.reset();
+        document.getElementById('nome').focus();
+    } catch (error) {
+        alert(error.message || 'Não foi possível concluir o cadastro.');
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalLabel;
     }
-    console.log(`Valor do reset antes de passado pro php: ${formData.reset}`);
-    fetch(`${AuxiFunc.address}cadastrar_usuario.php`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Usuário cadastrado com sucesso!');
-            document.getElementById('formCadastroUsuario').reset();
-        } else {
-            alert('Erro: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Ocorreu um erro ao processar a requisição');
-    });
 });

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/redesign.css">
+  <title>Relatórios | Central de Equipamentos</title>
+</head>
+<body>
+  <header>
+    <h1>Relatórios</h1>
+    <nav class="submenu" aria-label="Navegação principal">
+      <ul>
+        <li><a href="inicio.html" aria-label="Painel inicial"><i class="bx bx-home"></i></a></li>
+        <li><a href="info_computadores.html" aria-label="Lista de computadores"><i class="bx bx-list-ul"></i></a></li>
+        <li><a href="novo_computador.html" aria-label="Novo computador"><i class="bx bx-desktop"></i></a></li>
+        <li><a href="impressoras.html" aria-label="Impressoras"><i class="bx bx-printer"></i></a></li>
+        <li><a href="componentes.html" aria-label="Componentes e suprimentos"><i class="bx bx-cube"></i></a></li>
+        <li><a href="relatorio.html" aria-label="Relatórios" aria-current="page"><i class="bx bx-bar-chart-alt-2"></i></a></li>
+      </ul>
+    </nav>
+    <p class="nome-user"></p>
+    <div class="foto-perfil" onclick="toggleMenu()" aria-label="Abrir menu de perfil" tabindex="0">
+      <img src="../imagens/default.png" alt="Foto de perfil do usuário">
+      <div id="menu-perfil" class="menu-perfil" tabindex="0">
+        <ul>
+          <li><a href="cadastrar_ususario.html" class="menu-registro"><i class="bx bx-user-plus"></i> Registrar um novo usuário</a></li>
+          <li><a href="#" class="alt-foto"><i class="bx bx-camera"></i> Alterar foto</a></li>
+          <li><a href="info_computadores.html"><i class="bx bx-devices"></i> Computadores</a></li>
+          <li><a href="configuração.html"><i class="bx bx-cog"></i> Configurações</a></li>
+          <li><a href="index.html"><i class="bx bx-log-out"></i> Sair</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="report-page">
+    <section class="page-intro report-intro">
+      <div>
+        <span class="eyebrow">VISÃO CONSOLIDADA</span>
+        <h2>Relatório de equipamentos</h2>
+        <p>Consulte computadores próprios ou alugados e impressoras em um único lugar.</p>
+      </div>
+    </section>
+
+    <section class="report-metrics" aria-label="Resumo dos equipamentos" aria-live="polite">
+      <article><span class="report-metric-icon"><i class="bx bx-devices" aria-hidden="true"></i></span><div><span>Total de equipamentos</span><strong id="report-total">—</strong></div></article>
+      <article><span class="report-metric-icon report-metric-active"><i class="bx bx-check-circle" aria-hidden="true"></i></span><div><span>Computadores ativos</span><strong id="report-active">—</strong></div></article>
+      <article><span class="report-metric-icon report-metric-printer"><i class="bx bx-printer" aria-hidden="true"></i></span><div><span>Impressoras disponíveis</span><strong id="report-printers">—</strong></div></article>
+    </section>
+
+    <section class="report-toolbar" aria-label="Filtros do relatório">
+      <label class="report-search" for="report-search"><i class="bx bx-search" aria-hidden="true"></i><input id="report-search" type="search" placeholder="Buscar patrimônio, modelo, responsável ou setor"></label>
+      <label class="sr-only" for="report-type">Tipo de equipamento</label>
+      <select id="report-type">
+        <option value="all">Todos os equipamentos</option>
+        <option value="computer">Computadores</option>
+        <option value="printer">Impressoras</option>
+      </select>
+      <button type="button" class="report-export" id="report-export"><i class="bx bx-download" aria-hidden="true"></i> Exportar CSV</button>
+    </section>
+
+    <section class="report-table-wrap" aria-label="Dados do relatório">
+      <table class="report-table">
+        <thead>
+          <tr><th>Tipo</th><th>Patrimônio</th><th>Equipamento</th><th>Local / responsável</th><th>Data</th><th>Status</th></tr>
+        </thead>
+        <tbody id="report-rows"><tr><td colspan="6">Carregando relatório...</td></tr></tbody>
+      </table>
+    </section>
+    <p class="report-result-count" id="report-result-count" aria-live="polite">Carregando...</p>
+  </main>
+
+  <script src="../js/auxiFunc.js"></script>
+  <script src="../js/perfil_menu.js"></script>
+  <script src="../js/relatorio.js"></script>
+  <div class="alt-foto-box"><input type="file" accept="image/*" aria-label="Selecionar foto de perfil"><button class="btn-env-imagem" type="button">Salvar</button></div>
+</body>
+</html>

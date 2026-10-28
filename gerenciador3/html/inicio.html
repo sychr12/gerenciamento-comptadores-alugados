@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/redesign.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="icon" href="../img/chart_16270065 (1).png" type="image/x-icon">
+  <title>Painel inicial | Central de Equipamentos</title>
+</head>
+<body>
+  <header>
+    <h1>Painel inicial</h1>
+    <nav class="submenu" aria-label="Navegação principal">
+      <ul>
+        <li><a href="inicio.html" aria-label="Painel inicial" aria-current="page"><i class="bx bx-home"></i></a></li>
+          <li><a href="info_computadores.html" aria-label="Lista de computadores"><i class="bx bx-list-ul"></i></a></li>
+        <li><a href="novo_computador.html" aria-label="Novo computador"><i class="bx bx-desktop"></i></a></li>
+        <li><a href="impressoras.html" aria-label="Impressoras"><i class="bx bx-printer"></i></a></li>
+        <li><a href="componentes.html" aria-label="Componentes e suprimentos"><i class="bx bx-cube"></i></a></li>
+        <li><a href="relatorio.html" aria-label="Relatórios"><i class="bx bx-bar-chart-alt-2"></i></a></li>
+      </ul>
+    </nav>
+    <p class="nome-user"></p>
+    <div class="foto-perfil" onclick="toggleMenu()" aria-label="Abrir menu de perfil" tabindex="0">
+      <img src="../imagens/default.png" alt="Foto de perfil do usuário">
+      <div id="menu-perfil" class="menu-perfil" tabindex="0">
+        <ul>
+          <li><a href="cadastrar_ususario.html" class="menu-registro"><i class="bx bx-user-plus"></i> Registrar um novo usuário</a></li>
+          <li><a href="#" class="alt-foto"><i class="bx bx-camera"></i> Alterar foto</a></li>
+          <li><a href="info_computadores.html"><i class="bx bx-devices"></i> Computadores</a></li>
+          <li><a href="configuração.html"><i class="bx bx-cog"></i> Configurações</a></li>
+          <li><a href="index.html"><i class="bx bx-log-out"></i> Sair</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-page">
+    <section class="dashboard-welcome dashboard-hero">
+      <div class="dashboard-welcome-copy">
+        <div class="dashboard-hero-meta">
+          <span class="status-pill"><i class="bx bx-check-circle" aria-hidden="true"></i> Sistema em operação</span>
+          <span class="sync-pill"><i class="bx bx-refresh" aria-hidden="true"></i> Última sincronização: <strong>agora</strong></span>
+        </div>
+        <span class="eyebrow">VISÃO GERAL</span>
+        <h2>Olá, <span id="dashboard-user">bem-vindo</span></h2>
+        <p>Acompanhe seus equipamentos e acesse rapidamente as tarefas do dia.</p>
+      </div>
+      <div class="dashboard-welcome-actions">
+        <a class="dashboard-secondary" href="info_computadores.html"><i class="bx bx-list-ul" aria-hidden="true"></i> Ver computadores</a>
+        <a class="dashboard-primary" href="novo_computador.html"><i class="bx bx-plus" aria-hidden="true"></i> Cadastrar computador</a>
+      </div>
+    </section>
+
+    <section class="dashboard-metrics" aria-label="Resumo do inventário" aria-live="polite">
+      <article class="dashboard-metric metric-computers">
+        <span class="metric-icon"><i class="bx bx-devices" aria-hidden="true"></i></span>
+        <div><span>Computadores</span><strong id="dashboard-computers">—</strong><small id="dashboard-computers-note">Carregando inventário</small></div>
+        <a href="info_computadores.html" aria-label="Ver computadores"><i class="bx bx-right-arrow-alt"></i></a>
+      </article>
+      <article class="dashboard-metric metric-active">
+        <span class="metric-icon"><i class="bx bx-check-circle" aria-hidden="true"></i></span>
+        <div><span>Em uso</span><strong id="dashboard-active">—</strong><small>Computadores ativos</small></div>
+      </article>
+      <article class="dashboard-metric metric-attention">
+        <span class="metric-icon"><i class="bx bx-error-circle" aria-hidden="true"></i></span>
+        <div><span>Precisam de atenção</span><strong id="dashboard-attention">—</strong><small>Fora do status ativo</small></div>
+      </article>
+      <article class="dashboard-metric metric-printers">
+        <span class="metric-icon"><i class="bx bx-printer" aria-hidden="true"></i></span>
+        <div><span>Impressoras disponíveis</span><strong id="dashboard-printers">—</strong><small id="dashboard-printers-note">Carregando inventário</small></div>
+        <a href="impressoras.html" aria-label="Ver impressoras"><i class="bx bx-right-arrow-alt"></i></a>
+      </article>
+    </section>
+
+    <section id="dashboard-inactive-alerts" class="dashboard-panel dashboard-alerts" aria-labelledby="dashboard-alerts-title" aria-live="polite" hidden>
+      <div class="dashboard-panel-heading">
+        <div>
+          <span class="eyebrow">ACOMPANHAMENTO</span>
+          <h2 id="dashboard-alerts-title">Computadores aguardando retorno <span id="dashboard-alert-count" class="alert-count">0</span></h2>
+        </div>
+        <a href="info_computadores.html">Ver inventário <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+      </div>
+      <p class="dashboard-alerts-note">Fora do status Ativo há mais de 2 dias desde a Data de Saída. Ao retornar, altere o status para Ativo no cadastro para remover o alerta.</p>
+      <div id="dashboard-alert-list" class="dashboard-alert-list"></div>
+    </section>
+
+    <section class="dashboard-content-grid">
+      <article class="dashboard-panel inventory-panel">
+        <div class="dashboard-panel-heading">
+          <div><span class="eyebrow">EQUIPAMENTOS</span><h2>Resumo do inventário</h2></div>
+          <a href="info_computadores.html">Ver computadores <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+        </div>
+        <div class="inventory-progress-label"><span>Computadores ativos</span><strong id="dashboard-active-percent">0%</strong></div>
+        <div class="inventory-progress" role="progressbar" aria-label="Percentual de computadores ativos" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="dashboard-active-bar"></span></div>
+        <div class="inventory-legend"><span><i class="legend-dot dot-active"></i> Ativos <strong id="legend-active">0</strong></span><span><i class="legend-dot dot-attention"></i> Atenção <strong id="legend-attention">0</strong></span></div>
+        <div class="dashboard-divider"></div>
+        <div class="recent-heading"><h3>Computadores recentes</h3><span>Últimos registros</span></div>
+        <div id="dashboard-recent" class="dashboard-recent" aria-live="polite"><p class="dashboard-loading">Carregando registros...</p></div>
+      </article>
+
+      <aside class="dashboard-side">
+        <article class="dashboard-panel quick-actions-panel">
+          <div class="dashboard-panel-heading"><div><span class="eyebrow">ATALHOS</span><h2>Ações rápidas</h2></div></div>
+          <a class="quick-action" href="novo_computador.html"><span><i class="bx bx-desktop"></i></span><span><strong>Novo computador</strong><small>Adicionar ao inventário</small></span><i class="bx bx-chevron-right"></i></a>
+          <a class="quick-action" href="impressoras.html"><span><i class="bx bx-printer"></i></span><span><strong>Impressoras</strong><small>Ver e gerenciar impressoras</small></span><i class="bx bx-chevron-right"></i></a>
+          <a class="quick-action" href="configuração.html" id="dashboard-users-link"><span><i class="bx bx-group"></i></span><span><strong>Usuários</strong><small>Gerenciar contas de acesso</small></span><i class="bx bx-chevron-right"></i></a>
+        </article>
+        <article class="dashboard-tip"><span class="tip-icon"><i class="bx bx-bulb"></i></span><div><strong>Inventário atualizado</strong><p>Os indicadores são carregados diretamente do banco de dados sempre que você abre o painel.</p></div></article>
+      </aside>
+    </section>
+  </main>
+
+  <script src="../js/auxiFunc.js"></script>
+  <script src="../js/perfil_menu.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <div class="alt-foto-box"><input type="file" accept="image/*" aria-label="Selecionar foto de perfil"><button class="btn-env-imagem" type="button">Salvar</button></div>
+</body>
+</html>

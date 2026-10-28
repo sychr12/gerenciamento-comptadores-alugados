@@ -1,13 +1,9 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
-header("Content-Type: application/json; charset=UTF-8");
+require_once __DIR__ . '/conexao.php';
 
-$conection = new PDO("mysql:host=localhost;dbname=testelogin", "root", "");
-
-$comand = $conection->query("SELECT id, nome, senha, nivel, reset FROM usuarios");
-$users = $comand->fetchAll(PDO::FETCH_ASSOC);
-
-echo json_encode($users);
-?>
+// This legacy endpoint used to return every user's plaintext password.
+// Login now uses login_api.php, which verifies one account server-side.
+enviarJson([
+    'success' => false,
+    'message' => 'Este endpoint foi desativado. Use o fluxo de autenticação atualizado.'
+], 410);

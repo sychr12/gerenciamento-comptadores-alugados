@@ -1,0 +1,200 @@
+/* Cadastro de usuários */
+/* Cadastro topbar: explicit sizing and alignment wins over older page rules. */
+body > header:has(+ main.registration-page) {
+  position: sticky !important;
+  top: 0;
+  z-index: 80;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
+  width: 100%;
+  height: 78px !important;
+  min-height: 78px !important;
+  margin: 0;
+  padding: 10px clamp(20px, 4vw, 56px) !important;
+  overflow: visible;
+  box-sizing: border-box;
+}
+body > header:has(+ main.registration-page) > h1 {
+  flex: 0 1 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2;
+}
+body > header:has(+ main.registration-page) nav.submenu {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: max-content;
+  margin: 0 !important;
+  transform: translate(-50%, -50%) !important;
+}
+body > header:has(+ main.registration-page) .nome-user {
+  position: static !important;
+  left: auto !important;
+  flex: 0 0 auto;
+  margin: 0 18px 0 auto !important;
+  line-height: 1.2;
+}
+body > header:has(+ main.registration-page) .foto-perfil {
+  position: relative !important;
+  z-index: 81;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  margin: 0 !important;
+}
+body > header:has(+ main.registration-page) .foto-perfil > img {
+  display: block;
+  width: 42px;
+  height: 42px;
+  margin: 0 !important;
+  object-fit: cover;
+}
+body > header:has(+ main.registration-page) .menu-perfil {
+  position: absolute !important;
+  top: calc(100% + 13px);
+  right: 0;
+  z-index: 82;
+}
+
+.registration-page {
+  width: min(100% - 32px, 760px) !important;
+  margin: clamp(28px, 6vh, 64px) auto 72px !important;
+  padding: 0 !important;
+}
+
+.registration-heading {
+  margin: 0 0 22px;
+  animation: rise-in .4s both;
+}
+
+.registration-heading h2 {
+  margin: 6px 0 0;
+  padding: 0;
+  color: var(--night-ink);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 780;
+  letter-spacing: -.045em;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.registration-heading h2::after { display: none; }
+.registration-heading p { margin: 8px 0 0; color: var(--night-muted); font-size: 14px; }
+
+#formCadastroUsuario {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 18px;
+  padding: clamp(22px, 4vw, 36px);
+  border-color: #2c3b56;
+  background: linear-gradient(145deg, rgb(22 33 53 / 98%), rgb(15 24 40 / 98%));
+  box-shadow: 0 24px 70px rgb(0 0 0 / 28%);
+}
+
+#formCadastroUsuario .form-group { min-width: 0; gap: 8px; }
+#formCadastroUsuario .form-group > label { color: #c6d1e3; font-size: 12px; letter-spacing: .015em; }
+#formCadastroUsuario input:not([type="checkbox"]),
+#formCadastroUsuario select {
+  min-height: 48px;
+  border-color: #35445f;
+  border-radius: 11px;
+  background: #0c1627;
+  color: #eef3fc;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+#formCadastroUsuario input::placeholder { color: #7888a2; }
+#formCadastroUsuario select:invalid { color: #7888a2; }
+#formCadastroUsuario select option { background: #121d30; color: #eef3fc; }
+#formCadastroUsuario input:not([type="checkbox"]):hover,
+#formCadastroUsuario select:hover { border-color: #526481; }
+#formCadastroUsuario input:focus,
+#formCadastroUsuario select:focus {
+  border-color: var(--night-cyan);
+  background: #101c2f;
+  box-shadow: 0 0 0 4px rgb(98 226 202 / 10%);
+  outline: 0;
+}
+#formCadastroUsuario input:-webkit-autofill {
+  -webkit-text-fill-color: #eef3fc;
+  box-shadow: 0 0 0 1000px #0c1627 inset;
+}
+
+#formCadastroUsuario .cadastro_check {
+  min-height: 48px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid #2c3b56;
+  border-radius: 11px;
+  background: rgb(12 22 39 / 65%);
+}
+#formCadastroUsuario .cadastro_check input {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  min-height: 18px;
+  margin: 0;
+  accent-color: var(--night-cyan);
+  cursor: pointer;
+}
+#formCadastroUsuario .cadastro_check label {
+  color: #aebbd0;
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1.4;
+  cursor: pointer;
+}
+#formCadastroUsuario button[type="submit"] {
+  min-height: 49px;
+  margin: 0;
+  border-radius: 11px;
+  background: linear-gradient(100deg, #62e2ca, #79e5d4);
+  box-shadow: 0 10px 26px rgb(98 226 202 / 14%);
+  font-size: 13px;
+  letter-spacing: .02em;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+#formCadastroUsuario button[type="submit"]:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 30px rgb(98 226 202 / 22%);
+}
+#formCadastroUsuario button[type="submit"]:active { transform: translateY(0); }
+#formCadastroUsuario button[type="submit"]:disabled { transform: none; filter: saturate(.7); opacity: .75; cursor: wait; }
+
+@media (max-width: 620px) {
+  .registration-page { width: calc(100% - 28px) !important; margin: 28px auto 46px !important; }
+  .registration-heading { margin-bottom: 17px; }
+  #formCadastroUsuario { grid-template-columns: 1fr; gap: 15px; padding: 20px; }
+  #formCadastroUsuario .cadastro_check,
+  #formCadastroUsuario button[type="submit"] { grid-column: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .registration-heading, #formCadastroUsuario { animation: none; }
+}
+
+@media (max-width: 760px) {
+  body > header:has(+ main.registration-page) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    gap: 8px 12px;
+    height: auto !important;
+    min-height: 78px !important;
+    padding: 12px 16px !important;
+  }
+  body > header:has(+ main.registration-page) > h1 { grid-column: 1; grid-row: 1; }
+  body > header:has(+ main.registration-page) .foto-perfil { grid-column: 2; grid-row: 1; }
+  body > header:has(+ main.registration-page) .nome-user { grid-column: 1; grid-row: 2; margin: 0 !important; }
+  body > header:has(+ main.registration-page) nav.submenu {
+    position: static !important;
+    grid-column: 2;
+    grid-row: 2;
+    width: auto;
+    margin: 0 !important;
+    transform: none !important;
+  }
+  body > header:has(+ main.registration-page) nav.submenu ul { justify-content: flex-end; }
+}
