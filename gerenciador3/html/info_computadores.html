@@ -7,31 +7,34 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/pagina_central.css" />
+    <link rel="stylesheet" href="../css/redesign.css" />
     <link rel="icon" href="../img/chart_16270065 (1).png" type="image/x-icon" />
     <title>Gerenciamento de Computadores</title>
   </head>
   <body>
     <header>
       <h1>Lista de Computadores</h1>
-      <nav class="submenu">
+      <nav class="submenu" aria-label="Navegação principal">
         <ul>
           <li>
-            <a href="../html/pagina_inicial.html"><i class="bx bx-home"></i></a>
+            <a href="../html/inicio.html" aria-label="Painel inicial"><i class="bx bx-home"></i></a>
           </li>
+          <li><a href="../html/info_computadores.html" aria-label="Lista de computadores" aria-current="page"><i class="bx bx-list-ul"></i></a></li>
           <li>
-            <a href="../html/novo_computador.html"
+            <a href="../html/novo_computador.html" aria-label="Novo computador"
               ><i class="bx bx-desktop"></i
             ></a>
           </li>
           <li>
             <a href="../html/impressoras.html"><i class="bx bx-printer"></i></a>
           </li>
+          <li><a href="../html/componentes.html" aria-label="Componentes e suprimentos"><i class="bx bx-cube"></i></a></li>
+          <li><a href="../html/relatorio.html" aria-label="Relatórios"><i class="bx bx-bar-chart-alt-2"></i></a></li>
         </ul>
       </nav>
       <p class="nome-user"></p>
       <div class="foto-perfil" onclick="toggleMenu()">
-        <img src="../img/chart_16270065 (1).png" alt="Foto de perfil" />
+        <img src="../imagens/default.png" alt="Foto de perfil" />
         <div id="menu-perfil" class="menu-perfil">
           <ul>
             <li><a class="menu-registro">Registrar um novo Usuario</a></li>
@@ -44,42 +47,57 @@
       </div>
     </header>
 
-    <main>
-      <!-- Barra de Pesquisa fora da tabela -->
+    <main class="computer-page">
+      <section class="inventory-overview">
+        <div>
+          <span class="eyebrow">CENTRAL DE ATIVOS</span>
+          <h2>Computadores</h2>
+          <p>Encontre equipamentos e acompanhe a situação do inventário.</p>
+        </div>
+        <div class="inventory-metrics" aria-live="polite">
+          <div><span>Total</span><strong id="metric-total">0</strong></div>
+          <div><span>Em uso</span><strong id="metric-active">0</strong></div>
+          <div><span>Atenção</span><strong id="metric-attention">0</strong></div>
+        </div>
+      </section>
       <div class="pesquisa">
-        <label for="pesquisa">Pesquisar:</label>
-        <input type="search" id="pesquisa" placeholder="Pesquisar..." />
+        <label class="computer-search" for="pesquisa"><i class="bx bx-search" aria-hidden="true"></i>
+          <input type="search" id="pesquisa" placeholder="Buscar patrimônio, modelo, pessoa ou setor" />
+        </label>
 
-        <select id="vinidobubumguloso" name="vinidobubumguloso">
-          <option value="">Selecione</option>
+        <select id="filtro-modelo" name="filtro-modelo" aria-label="Filtrar por modelo">
+          <option value="">Todos os modelos</option>
           <option value="Positivo">Positivo</option>
           <option value="Compaq">Compaq</option>
         </select>
 
-        <select id="edbrock" name="edbrock">
-          <option value="Selecione">Selecione</option>
+        <select id="filtro-motivo" name="filtro-motivo" aria-label="Filtrar por motivo de saída">
+          <option value="">Todos os motivos</option>
           <option value="Defeito">Defeito</option>
           <option value="Upgrade">Upgrade</option>
           <option value="Troca">Troca</option>
         </select>
 
-        <button class="botao" type="button" onclick="pesquisar()">
-          Pesquisar
-        </button>
-        <button class="botaodlt" type="button" onclick="botaodlt()">
-          Deletar
-        </button>
-        <button class="botaoedit" type="button" onclick="botaoedit()">
-          Editar
-        </button>
+        <select id="filtro-vinculo" name="filtro-vinculo" aria-label="Filtrar por vínculo do equipamento">
+          <option value="">Alugados e próprios</option>
+          <option value="Alugado">Alugados</option>
+          <option value="Próprio">Próprios (não alugados)</option>
+        </select>
+
+        <button class="botao botao-limpar" id="limpar-filtros" type="button">Limpar</button>
+        <button class="botao botao-exportar" id="export-computers" type="button">Exportar CSV</button>
+        <button class="botaodlt" id="delete-computer" type="button" onclick="botaodlt()" aria-label="Excluir computador selecionado" disabled>Excluir</button>
+        <button class="botaoedit" id="edit-computer" type="button" onclick="botaoedit()" aria-label="Editar computador selecionado" disabled>Editar</button>
+        <a class="computer-add-link" href="../html/novo_computador.html"><i class="bx bx-plus" aria-hidden="true"></i> Novo computador</a>
       </div>
 
-      <section>
+      <section class="computer-table-wrap" aria-label="Inventário de computadores">
         <table id="computerTable">
           <thead>
             <tr>
               <th>Patrimônio</th>
               <th>Tipo (Notebook/Desktop)</th>
+              <th>Vínculo</th>
               <th>Modelo</th>
               <th>Data Entrada</th>
               <th>Responsável</th>
@@ -88,18 +106,21 @@
               <th>Data Saída</th>
               <th>Motivo Saída (Defeito/Upgrade/Troca)</th>
               <th>Computador Substituído (Patrimônio)</th>
+              <th>Nome da máquina substituta</th>
+              <th>Modelo da máquina substituta</th>
+              <th>Data de substituição</th>
               <th>Observações</th>
             </tr>
           </thead>
           <tbody>
-            <!-- Dados preenchidos via JS -->
+            <tr><td colspan="15">Carregando computadores...</td></tr>
           </tbody>
         </table>
       </section>
     </main>
 
     <script src="../js/auxiFunc.js"></script>
-    <script src="../js/teste.js"></script>
+    <script src="../js/computadores.js"></script>
     <script src="../js/perfil_menu.js"></script>
     <div class="alt-foto-box">
       <input type="file" accept="image/*" />

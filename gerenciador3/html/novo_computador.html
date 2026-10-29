@@ -7,7 +7,7 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/nvcomputador.css" />
+    <link rel="stylesheet" href="../css/redesign.css" />
     <link rel="icon" href="../img/chart_16270065 (1).png" type="image/x-icon" />
     <title>Cadastro de Computador</title>
   </head>
@@ -15,55 +15,63 @@
     <!-- ===================== HEADER ===================== -->
     <header>
       <h1>Cadastro</h1>
-      <nav class="submenu">
+      <nav class="submenu" aria-label="Navegação principal">
         <ul>
           <li>
-            <a href="../html/info_computadores.html"
+            <a href="../html/inicio.html" aria-label="Painel inicial"
               ><i class="bx bx-home"></i
             ></a>
           </li>
+          <li><a href="../html/info_computadores.html" aria-label="Lista de computadores"><i class="bx bx-list-ul"></i></a></li>
           <li>
-            <a href="../html/novo_computador.html"
+            <a href="../html/novo_computador.html" aria-label="Novo computador"
               ><i class="bx bx-desktop"></i
             ></a>
           </li>
-          <li>
-            <a href="../html/impressoras.html"><i class="bx bx-printer"></i></a>
-          </li>
+          <li><a href="../html/impressoras.html" aria-label="Impressoras"><i class="bx bx-printer"></i></a></li>
+          <li><a href="../html/componentes.html" aria-label="Componentes e suprimentos"><i class="bx bx-cube"></i></a></li>
+          <li><a href="../html/relatorio.html" aria-label="Relatórios"><i class="bx bx-bar-chart-alt-2"></i></a></li>
         </ul>
       </nav>
       <!-- ===== Perfil do Usuário ===== -->
       <p class="nome-user"></p>
       <div class="foto-perfil" onclick="toggleMenu()">
-        <img src="../img/chart_16270065 (1).png" alt="Foto de perfil" />
+        <img src="../imagens/default.png" alt="Foto de perfil" />
         <div id="menu-perfil" class="menu-perfil">
           <ul>
-            <li><a class="menu-registro">Registrar um novo Usuário</a></li>
-            <li><a class="alt-foto">Alterar foto</a></li>
-            <li><a href="../html/info_computadores.html">Computadores</a></li>
-            <li><a href="../html/configuração.html">Configurações</a></li>
+            <li><a href="cadastrar_ususario.html" class="menu-registro">Registrar um novo usuário</a></li>
+            <li><a href="#" class="alt-foto">Alterar foto</a></li>
+            <li><a href="info_computadores.html">Computadores</a></li>
+            <li><a href="configuração.html">Configurações</a></li>
             <li><a href="../html/index.html">Sair</a></li>
           </ul>
         </div>
       </div>
     </header>
 
-    <!-- ===================== TÍTULO ===================== -->
-    <h2>Adicionar Novo Computador</h2>
-
-    <!-- ===================== MAIN ===================== -->
-    <main>
-      <!-- ===== Formulário de Cadastro de Computadores ===== -->
-      <section>
+    <main class="computer-form-page">
+      <div class="page-intro computer-form-intro">
+        <div>
+          <span class="eyebrow">INVENTÁRIO DE ATIVOS</span>
+          <h2>Adicionar computador</h2>
+          <p>Cadastre o equipamento e registre as informações de uso.</p>
+        </div>
+      </div>
         <form id="computerForm">
           <label for="id">Patrimônio:</label>
-          <input type="number" id="id" name="id" required />
+          <input type="number" id="id" name="id" min="1" step="1" required />
 
           <label for="status">Tipo:</label>
           <select id="status" name="status" required>
             <option value="" disabled selected>Selecione o tipo</option>
             <option value="Notebook">Notebook</option>
             <option value="Desktop">Desktop</option>
+          </select>
+
+          <label for="ownership">Vínculo do equipamento:</label>
+          <select id="ownership" name="ownership" required>
+            <option value="Alugado" selected>Alugado</option>
+            <option value="Próprio">Próprio (não alugado)</option>
           </select>
 
           <label for="model">Modelo:</label>
@@ -77,15 +85,16 @@
           <input type="date" id="entryDate" name="entryDate" required />
 
           <label for="Resp">Responsável:</label>
-          <input type="text" id="Resp" name="Resp" required />
+          <input type="text" id="Resp" name="Resp" maxlength="150" required />
 
           <label for="Setor">Setor:</label>
-          <input type="text" id="Setor" name="Setor" required />
+          <input type="text" id="Setor" name="Setor" maxlength="120" required />
 
           <label for="pronto">Status:</label>
           <select id="pronto" name="pronto" required>
             <option value="" disabled selected>Selecione</option>
             <option value="ativo">Ativo</option>
+            <option value="danificado">Danificado</option>
             <option value="desativado">Desativado</option>
             <option value="Substituído">Substituído</option>
           </select>
@@ -101,8 +110,26 @@
             <option value="Troca">Troca</option>
           </select>
 
-          <label for="Patrimonio">Computador Substituído (Patrimônio):</label>
-          <input type="number" id="Patrimonio" name="Patrimonio" />
+          <div class="check-substituicao">
+            <label for="temSubstituicao" class="check-option">
+              <input type="checkbox" id="temSubstituicao" name="temSubstituicao" />
+              <span>Vai ter máquina pra substituição?</span>
+            </label>
+          </div>
+
+          <div id="campoPatrimonioSubstituicao" class="substituicao-field" hidden>
+            <label for="Patrimonio">Computador Substituído (Patrimônio):</label>
+            <input type="text" id="Patrimonio" name="Patrimonio" maxlength="100" inputmode="numeric" />
+
+            <label for="replacementName">Nome da máquina substituta:</label>
+            <input type="text" id="replacementName" name="replacementName" maxlength="150" />
+
+            <label for="replacementModel">Modelo da máquina substituta:</label>
+            <input type="text" id="replacementModel" name="replacementModel" maxlength="100" />
+
+            <label for="replacementDate">Data de substituição:</label>
+            <input type="date" id="replacementDate" name="replacementDate" />
+          </div>
 
           <label for="obs">Observações:</label>
           <input
@@ -114,46 +141,12 @@
 
           <button class="botao" type="submit">Adicionar</button>
         </form>
-      </section>
-      <!-- ===== Fim do Formulário ===== -->
     </main>
 
     <!-- ===================== SCRIPTS ===================== -->
     <script src="../js/auxiFunc.js"></script>
-    <script src="../js/teste.js"></script>
+    <script src="../js/computadores.js"></script>
     <script src="../js/perfil_menu.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const dadosEdicao = localStorage.getItem("computadorEdicao");
-        if (dadosEdicao) {
-          const comp = JSON.parse(dadosEdicao);
-          document.getElementById("id").value = comp.id || "";
-          document.getElementById("id").setAttribute("readonly", true);
-          document.getElementById("status").value = comp.status || "";
-          document.getElementById("model").value = comp.model || "";
-          document.getElementById("entryDate").value = comp.entryDate || "";
-          document.getElementById("Resp").value = comp.Resp || "";
-          document.getElementById("Setor").value = comp.Setor || "";
-          document.getElementById("pronto").value = comp.pronto || "";
-          document.getElementById("exitDate").value =
-            comp.exitDate !== "-" ? comp.exitDate : "";
-          document.getElementById("saidamt").value =
-            comp.saidamt !== "-" ? comp.saidamt : "";
-          document.getElementById("Patrimonio").value =
-            comp.Patrimonio !== "-" ? comp.Patrimonio : "";
-          document.getElementById("obs").value =
-            comp.obs !== "-" ? comp.obs : "";
-          // Limpa o localStorage para não editar novamente sem querer
-          localStorage.removeItem("computadorEdicao");
-          // Troca o texto do botão para "Salvar Edição"
-          const btn = document.querySelector(
-            '#computerForm button[type="submit"]'
-          );
-          if (btn) btn.textContent = "Salvar Edição";
-        }
-      });
-    </script>
-
     <!-- ===================== ALTERAR FOTO ===================== -->
     <div class="alt-foto-box">
       <input type="file" accept="image/*" />

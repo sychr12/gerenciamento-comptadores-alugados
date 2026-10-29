@@ -1,33 +1,19 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
-header("Content-Type: application/json; charset=UTF-8");
+require_once __DIR__ . '/conexao.php';
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, OPTIONS');
 
-// Conexão com o banco
-$host = 'localhost';
-$db = 'testelogin';
-$user = 'root';
-$pass = '';
-
-$conn = new mysqli($host, $user, $pass, $db);
-
-if ($conn->connect_error) {
-    echo json_encode(["error" => "Erro de conexão"]);
-    exit();
+if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'OPTIONS') {
+    http_response_code(204);
+    exit;
 }
 
-$sql = "SELECT id, nome, cargo, nivel, categoria, data_cadastro FROM usuarios";
-$result = $conn->query($sql);
+exigirAutenticacao(2);
 
-$dados = [];
-
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $dados[] = $row;
-    }
+try {
+    $db = conectarBanco();
+    $statement = $db->query('SELECT id, nome, cargo, nivel, categoria, data_cadastro, "reset" FROM usuarios ORDER BY nome');
+    enviarJson($statement->fetchAll());
+} catch (PDOException $error) {
+    erroBanco($error);
 }
-
-echo json_encode($dados);
-$conn->close();
-?>
